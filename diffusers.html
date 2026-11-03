@@ -24,7 +24,7 @@
 .configs .media img { transition: transform .8s var(--ease); }
 .configs a:hover .media img { transform: scale(1.04); }
 .panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.panels i { display: block; aspect-ratio: 4 / 3; border: 1px solid var(--line); }
+.panels .cut { aspect-ratio: 4 / 3; }
 .panels b { display: block; font-weight: 500; margin-top: 14px; }
 .panels span { font-size: 13.5px; color: var(--ink2); }
 @media (max-width: 760px) { .anat, .panels { grid-template-columns: 1fr; } .configs { grid-template-columns: 1fr 1fr; } }
@@ -69,12 +69,12 @@ The line under each name is the approximate life of one fill; refill codes are l
     </div>
   </section>
 
-  <section class="sec" data-note="Vessels: one CSS swatch per vessel finish (inline styles). Set them to your real vessels.">
+  <section class="sec" data-note="Vessels: one photo per vessel finish. Replace them with photos of your real vessels.">
     <div class="wrap head"><h2 class="d2 split">Change the scent, keep the vessel.</h2></div>
     <div class="wrap panels stagger">
-      <div><i style="background:linear-gradient(160deg,#f4f6f5,#dfe5e3 60%,#cdd6d3)"></i><b>Clear glass</b><span>Shows the oil. Light and quiet in any room.</span></div>
-      <div><i style="background:linear-gradient(160deg,#6a625c,#3f3a36)"></i><b>Smoked glass</b><span>Darker, for evening rooms, bars and lobbies.</span></div>
-      <div><i style="background:radial-gradient(circle at 30% 25%,#faf8f4,#ebe7df 70%)"></i><b>White ceramic</b><span>Matte and opaque. The oil level stays out of sight.</span></div>
+      <div><div class="cut"><img src="assets/img/photos/bottle-clear.jpg" alt="Photo: a clear glass reed diffuser bottle with rattan reeds" loading="lazy"></div><b>Clear glass</b><span>Shows the oil. Light and quiet in any room.</span></div>
+      <div><div class="cut"><img src="assets/img/photos/bottle-smoked.jpg" alt="Photo: a smoked glass reed diffuser bottle with dark reeds" loading="lazy"></div><b>Smoked glass</b><span>Darker, for evening rooms, bars and lobbies.</span></div>
+      <div><div class="cut"><img src="assets/img/photos/bottle-ceramic.jpg" alt="Photo: a matte white ceramic reed diffuser bottle with rattan reeds" loading="lazy"></div><b>White ceramic</b><span>Matte and opaque. The oil level stays out of sight.</span></div>
     </div>
   </section>
 

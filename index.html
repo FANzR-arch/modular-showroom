@@ -52,12 +52,6 @@
 .mrow.rev .media { order: 2; }
 .mtxt { padding: 0 clamp(20px, 6vw, 90px); display: grid; gap: 18px; }
 .mtxt p { color: var(--ink2); max-width: 40ch; line-height: 1.75; }
-.mrow .swatch { display: grid; grid-template-columns: repeat(3, 1fr); align-items: end; gap: 4%; padding: 12% 8%; background: var(--bg2); }
-.mrow .swatch .chip { display: grid; gap: 12px; }
-.mrow .swatch i { display: block; aspect-ratio: .8; position: relative; border-radius: 4px; box-shadow: 0 18px 40px rgb(0 0 0 / .1); }
-.mrow .swatch i::before { content: ""; position: absolute; left: 50%; top: -9%; width: 2px; height: 9%; margin-left: -1px; background: #2b2a28; }
-.mrow .swatch span { font-size: 13px; color: var(--ink2); }
-.mrow .swatch { align-items: center; padding: 14% 12%; gap: 10%; }
 @media (max-width: 760px) { .mrow { grid-template-columns: 1fr; } .mrow.rev .media { order: 0; } .mtxt { padding: 28px 0 48px; } }
 
 .rail { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(270px, 30vw, 460px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--pad) 8px; scroll-padding-inline: var(--pad); scrollbar-width: none; cursor: grab; }
@@ -183,14 +177,13 @@ Use a dark photo so the white text reads well.">
 
   <!-- materials: alternating image / text rows -->
   <section class="sec" data-note="Materials: alternating image and text rows, one per ingredient or vessel.
-The vessel row uses CSS swatches (inline styles); the others are demo photos.
 Replace the demo photos in assets/img/photos with close-ups of your materials.">
     <div class="wrap head" style="max-width:1180px"><h2 class="d2 split">Four ingredients.</h2><p class="lead" data-rv>Few materials, each chosen for a clean, even burn.</p></div>
     <div class="mat-in">
       <div class="mrow"><div class="media" data-rv="wipe"><img src="assets/img/photos/wax-flakes.jpg" alt="Photo: creamy wax flakes in a ceramic bowl on a pale wooden bench, soft side light" loading="lazy"></div><div class="mtxt" data-rv><h3 class="d3">Wax</h3><p>A blend of coconut and rapeseed wax. Soft and slow-burning, it holds scent well and melts to an even pool.</p></div></div>
       <div class="mrow rev"><div class="media" data-rv="wipe"><img src="assets/img/photos/weighing-oil.jpg" alt="Photo: a glass dropper over a small beaker of fragrance oil, scent strips fanned out beside it" loading="lazy"></div><div class="mtxt" data-rv><h3 class="d3">Fragrance oils</h3><p>Each scent is blended in our studio from fragrance and essential oils, then left to settle before it meets the wax.</p></div></div>
       <div class="mrow"><div class="media" data-rv="wipe"><img src="assets/img/photos/cotton-wicks.jpg" alt="Photo: braided cotton wicks of three lengths laid in a row on unbleached linen" loading="lazy"></div><div class="mtxt" data-rv><h3 class="d3">Cotton wick</h3><p>A braided cotton wick, sized for each vessel so the flame stays steady and the pool reaches the edge.</p></div></div>
-      <div class="mrow rev"><div class="media swatch" data-rv="wipe" role="img" aria-label="Clear glass, smoked glass and white ceramic vessel samples, each with a wick"><div class="chip"><i style="background:linear-gradient(160deg,#f4f6f5,#dfe5e3 60%,#cdd6d3)"></i><span>Clear glass</span></div><div class="chip"><i style="background:linear-gradient(160deg,#6a625c,#3f3a36)"></i><span>Smoked glass</span></div><div class="chip"><i style="background:#efece6"></i><span>Ceramic</span></div></div><div class="mtxt" data-rv><h3 class="d3">Vessels</h3><p>Clear glass, smoked glass or matte ceramic, from specialist makers. Every one is made to take a refill.</p></div></div>
+      <div class="mrow rev"><div class="media" data-rv="wipe"><img src="assets/img/photos/vessels.jpg" alt="Photo: clear glass, smoked glass and white ceramic vessels in a row, each with a wick" loading="lazy"></div><div class="mtxt" data-rv><h3 class="d3">Vessels</h3><p>Clear glass, smoked glass or matte ceramic, from specialist makers. Every one is made to take a refill.</p></div></div>
     </div>
   </section>
 

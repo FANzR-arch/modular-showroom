@@ -100,9 +100,8 @@ html.notes .notes-btn { background: #ffe14d; border-color: #ffe14d; color: #111;
 .mega a { display: grid; gap: 14px; justify-items: center; opacity: 0; transition: opacity .4s var(--ease); }
 .mega.open a { opacity: 1; }
 .mega.open a:nth-child(2) { transition-delay: .06s; } .mega.open .grp + .grp a { transition-delay: .12s; } .mega.open .grp + .grp a:nth-child(2) { transition-delay: .18s; }
-.mega .pic { width: 100%; aspect-ratio: 16 / 10; background: transparent; display: grid; place-items: center; overflow: hidden; }
-.mega .pic > * { max-width: 70%; max-height: 82%; transition: transform .6s var(--ease); }
-.mega .pic img { mix-blend-mode: multiply; }
+.mega .pic { width: 100%; aspect-ratio: 16 / 10; display: grid; overflow: hidden; }
+.mega .pic > * { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
 .mega a:hover .pic > * { transform: scale(1.05); }
 .mega .pic, .mnav .cats .pic { position: relative; }
 .mega span { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
@@ -113,10 +112,9 @@ html.notes .notes-btn { background: #ffe14d; border-color: #ffe14d; color: #111;
 .mnav { position: fixed; inset: var(--hdr) 0 0; z-index: 79; background: var(--bg); padding: 24px var(--pad) 40px; overflow-y: auto; clip-path: inset(0 0 100% 0); transition: clip-path .55s var(--ease); }
 .mnav.open { clip-path: inset(0 0 0 0); }
 .mnav .cats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
-.mnav .cats a { background: var(--bg2); padding: 14px; display: grid; gap: 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
-.mnav .cats .pic { aspect-ratio: 4/3; display: grid; place-items: center; }
-.mnav .cats .pic > * { max-width: 80%; max-height: 90%; }
-.mnav .cats img { mix-blend-mode: multiply; }
+.mnav .cats a { padding: 0; display: grid; gap: 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.mnav .cats .pic { aspect-ratio: 4/3; display: grid; overflow: hidden; }
+.mnav .cats .pic > * { width: 100%; height: 100%; object-fit: cover; }
 .mnav .big a { display: block; font: 500 34px/1.25 var(--fd); letter-spacing: -.03em; border-bottom: 1px solid var(--line); padding: 10px 0; }
 
 /* ---------- footer ---------- */
@@ -147,12 +145,8 @@ html.notes .notes-btn { background: #ffe14d; border-color: #ffe14d; color: #111;
 .r169 { aspect-ratio: 16/9; } .r43 { aspect-ratio: 4/3; } .r34 { aspect-ratio: 3/4; } .r11 { aspect-ratio: 1; } .r45 { aspect-ratio: 4/5; } .r219 { aspect-ratio: 21/9; }
 .zoom img { transition: transform .8s var(--ease); }
 .zoom:hover img { transform: scale(1.03); }
-.cut { background: var(--bg2); display: grid; place-items: center; }
-.cut img { max-width: 78%; max-height: 78%; object-fit: contain; mix-blend-mode: multiply; }
-/* product cut-outs sit inset; placeholders fill the box */
-.cut img[src*="/ph/"] { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; mix-blend-mode: normal; }
-:root[data-theme="dark"] .cut, :root[data-theme="dark"] .mega .pic, :root[data-theme="dark"] .mnav .cats a { background: #e9eaeb; color: #111; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cut, :root:not([data-theme="light"]) .mega .pic, :root:not([data-theme="light"]) .mnav .cats a { background: #e9eaeb; color: #111; } }
+.cut { background: var(--bg2); display: grid; overflow: hidden; }
+.cut img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- shared blocks ---------- */
 .head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: clamp(32px, 4vw, 56px); flex-wrap: wrap; }

@@ -56,7 +56,7 @@
 
 .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .sw { display: grid; gap: 12px; }
-.sw i { aspect-ratio: 1 / 1.1; display: block; border: 1px solid var(--line); }
+.sw .cut { aspect-ratio: 1 / 1.1; }
 .sw b { font-size: 14px; font-weight: 500; }
 .sw span { font-size: 12.5px; color: var(--ink2); }
 
@@ -78,7 +78,6 @@
 .cmp td:nth-child(2) { font-weight: 500; }
 .sizes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 64px; }
 .sizes .cut { aspect-ratio: 16 / 9; }
-.sizes .cut img { max-width: 70%; max-height: 70%; }
 
 .process { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 90px); align-items: center; }
 .process ol { list-style: none; padding: 0; margin: 0; counter-reset: s; }
@@ -242,14 +241,14 @@ Replace the demo photos with one photo per habit.">
   </section>
 
   <!-- 10 vessels -->
-  <section id="vessels" class="sec" data-note="Vessels and finishes: one swatch per vessel or lid (CSS colours in the inline styles).
-Set the swatch colours to match your real vessels.">
+  <section id="vessels" class="sec" data-note="Vessels and finishes: one photo per vessel or lid.
+Replace them with photos of your real vessels.">
     <div class="wrap head"><h2 class="d2 split">Vessels and finishes.</h2><p class="lead" data-rv>Glass and ceramic from specialist makers, with an oak lid. Chosen to sit quietly in any room.</p></div>
     <div class="wrap swatches stagger">
-      <div class="sw"><i style="background:linear-gradient(160deg,#f4f6f5,#dfe5e3 60%,#cdd6d3)"></i><b>Clear glass</b><span>Vessel · 120 / 220 / 400 g</span></div>
-      <div class="sw"><i style="background:linear-gradient(160deg,#6a625c,#3f3a36)"></i><b>Smoked glass</b><span>Vessel · 220 / 400 g</span></div>
-      <div class="sw"><i style="background:#efece6"></i><b>White ceramic</b><span>Vessel · matte glaze</span></div>
-      <div class="sw"><i style="background:linear-gradient(135deg,#e4c39d,#c99a68)"></i><b>Oak</b><span>Lid · doubles as a coaster</span></div>
+      <div class="sw"><div class="cut"><img src="assets/img/photos/vessel-clear.jpg" alt="Photo: an empty clear glass candle vessel with a cotton wick" loading="lazy"></div><b>Clear glass</b><span>Vessel · 120 / 220 / 400 g</span></div>
+      <div class="sw"><div class="cut"><img src="assets/img/photos/vessel-smoked.jpg" alt="Photo: an empty smoked glass candle vessel with a cotton wick" loading="lazy"></div><b>Smoked glass</b><span>Vessel · 220 / 400 g</span></div>
+      <div class="sw"><div class="cut"><img src="assets/img/photos/vessel-ceramic.jpg" alt="Photo: a matte white ceramic candle vessel filled with wax" loading="lazy"></div><b>White ceramic</b><span>Vessel · matte glaze</span></div>
+      <div class="sw"><div class="cut"><img src="assets/img/photos/oak-lid.jpg" alt="Photo: a round oak candle lid lying flat, a second lid leaning on a vessel" loading="lazy"></div><b>Oak</b><span>Lid · doubles as a coaster</span></div>
     </div>
   </section>
 
