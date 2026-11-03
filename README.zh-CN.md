@@ -4,6 +4,8 @@
 
 不用框架，不用构建。用任意静态服务器打开就能跑，改一个配置文件、两个数据文件和页面文案就能换成自己的品牌。演示品牌是一个虚构的家居香氛工作室 "Solenne"。
 
+**在线演示：https://fanzr-arch.github.io/modular-showroom/**
+
 ![首页](docs/screenshot-home.jpg)
 ![图库](docs/screenshot-gallery.jpg)
 

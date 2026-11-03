@@ -4,6 +4,8 @@ A static website template for **product brands that sell to homes and businesses
 
 No framework and no build step. Serve the folder, then edit one config file, two data files and the page copy. The demo brand is a fictional home-fragrance studio, "Solenne".
 
+**Live demo: https://fanzr-arch.github.io/modular-showroom/**
+
 ![Home page](docs/screenshot-home.jpg)
 ![Gallery](docs/screenshot-gallery.jpg)
 
