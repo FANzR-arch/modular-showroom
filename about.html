@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About Solenne</title>
+<meta name="description" content="Solenne is a small studio that blends and hand-pours scented candles and reed diffusers, in refillable vessels made by specialist makers.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/config.js"></script><script defer src="assets/site.js"></script>
+<style>
+.ident .txt { max-width: 700px; margin-top: 44px; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.6; color: var(--ink2); }
+.wide { aspect-ratio: 21 / 9; overflow: hidden; position: relative; }
+.wide img { position: absolute; inset: -10% 0; width: 100%; height: 120%; object-fit: cover; }
+.sub3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sub3 a { display: grid; gap: 16px; align-content: start; }
+.sub3 .media { aspect-ratio: 4 / 5; }
+.sub3 h3 { font-size: 24px; letter-spacing: -.025em; display: flex; justify-content: space-between; }
+.sub3 p { color: var(--ink2); font-size: 15px; max-width: 34ch; }
+.ethos2 { background: var(--bg2); padding: clamp(24px, 3vw, 40px); display: grid; gap: 22px; align-content: start; }
+.ethos2 h3 { font-size: 24px; letter-spacing: -.025em; }
+.ethos2 b { display: block; font-size: 17px; font-weight: 500; margin-bottom: 6px; }
+.ethos2 p { font-size: 14.5px; }
+.sub3 .ethos2 a.link { display: inline-flex; gap: 8px; justify-self: start; white-space: nowrap; }
+.nums { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.nums div { padding: 28px 20px 0 0; }
+.nums b { display: block; font: 500 clamp(44px, 5.5vw, 84px)/1 var(--fd); letter-spacing: -.05em; }
+.nums span { font-size: 14px; color: var(--ink2); }
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.quotes blockquote { margin: 0; background: var(--bg); padding: 28px; display: grid; gap: 20px; }
+@media (max-width: 760px) { .sub3, .quotes { grid-template-columns: 1fr; } .nums { grid-template-columns: 1fr 1fr; } .wide { aspect-ratio: 4 / 3; } }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "AboutPage", "name": "About Solenne", "url": "https://www.example.com/about.html", "mainEntity": {"@context": "https://schema.org", "@type": "Organization", "name": "Solenne", "legalName": "Solenne Studio Ltd", "url": "https://www.example.com", "email": "hello@example.com", "telephone": "+1 555 0100", "address": {"@type": "PostalAddress", "streetAddress": "Example Street 1", "addressLocality": "Example City"}}}</script>
+</head>
+<body data-page="about">
+<main>
+  <section class="phero ident" data-note="About hero: the brand in one title, one line and two short paragraphs.
+Edit the text here; the split class animates the H1 word by word.">
+    <div class="wrap">
+      <h1 class="d1 split">About Solenne</h1>
+      <p class="lead" data-rv>Scent, made slowly.</p>
+      <div class="txt stack" data-rv>
+        <p>Solenne is a small studio. We blend every scent ourselves and pour every candle and diffuser by hand, in small batches.</p>
+        <p>Twelve scents, two ways to live with them: candles and reed diffusers. The glass and ceramic vessels come from specialist makers, and each one is made to be refilled, not thrown away. They scent homes, hotels, stores and spas.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wide" data-rv="wipe" data-note="Full-width image with a slow parallax; data-par sets its strength.
+Replace the demo photo in assets/img/photos with a wide photo."><img src="assets/img/photos/pouring.jpg" alt="Photo: the studio pouring table with rows of freshly poured candles in clear glass vessels, soft morning window light" data-par="50"></div>
+
+  <section class="sec" data-note="Three teasers linking to the other brand pages: Ethos (two tenets shown), Making and Principles.
+Keep the two tenets in step with ethos.html; replace the demo photos in assets/img/photos.">
+    <div class="wrap head"><h2 class="d2 split">What we stand for.</h2></div>
+    <div class="wrap sub3 stagger">
+      <div class="ethos2"><h3>Ethos</h3><div><b>Refill, don't replace.</b><p>Every vessel can be refilled. When the wax runs out, the glass stays.</p></div><div><b>A clean burn.</b><p>A coconut-and-rapeseed wax blend and a cotton wick, sized to its vessel.</p></div><a class="link" href="ethos.html">All six tenets <span class="arr">→</span></a></div>
+      <a href="manufacturing.html"><div class="media zoom"><img src="assets/img/photos/pouring.jpg" alt="Photo: hands pouring melted wax from a pouring jug into a glass vessel, close-up, warm side light" loading="lazy"></div><h3>Making <span>→</span></h3><p>How a candle goes from blend to box, by hand, in small batches.</p></a>
+      <a href="good-design.html"><div class="media zoom"><img src="assets/img/photos/still-life-day.jpg" alt="Photo: a lit 220 g candle beside a reed diffuser on a linen-covered side table, late afternoon light" loading="lazy"></div><h3>Principles <span>→</span></h3><p>Five rules for a good scent and a good candle.</p></a>
+    </div>
+  </section>
+
+  <section class="sec tight" data-note="Key numbers: four short facts about the range.
+Use plain product facts only; the big value sits in b, the caption in span.">
+    <div class="wrap nums stagger">
+      <div><b>12</b><span>Scents, blended in the studio</span></div>
+      <div><b>4</b><span>Scent families</span></div>
+      <div><b>3</b><span>Candle sizes, 120 to 400 g</span></div>
+      <div><b>Refill</b><span>Every vessel, candle or diffuser</span></div>
+    </div>
+  </section>
+
+  <section class="sec note-only alt" data-note="Hidden by the note-only class until real material exists: a studio photo with a short quote, and three customer quotes.
+Remove the note-only class to show it.">
+    <div class="wrap grid2" style="margin-bottom:70px">
+      <div class="media r45"><img src="assets/img/photos/trimming-wick.jpg" alt="Photo: hands trimming the wicks of a tray of cured candles on a studio workbench, daylight" loading="lazy"></div>
+      <div class="stack-lg"><h2 class="d2">“We make the candles we want to come home to.”</h2><p class="muted">Name — Role, Solenne</p></div>
+    </div>
+    <div class="wrap quotes">
+      <blockquote><p>Customer quote 1</p><span class="muted small">Name · City</span></blockquote>
+      <blockquote><p>Customer quote 2</p><span class="muted small">Name · City</span></blockquote>
+      <blockquote><p>Customer quote 3</p><span class="muted small">Name · City</span></blockquote>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <div class="wrap"><div class="cta"><h2 class="d3">Find your scent.</h2><a class="btn" href="candles.html">Explore the candles <span class="arr">→</span></a></div></div>
+  </section>
+</main>
+</body>
+</html>

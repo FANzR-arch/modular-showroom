@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projects | Solenne</title>
+<meta name="description" content="Hotels, stores, spas, restaurants, events and homes scented with Solenne candles and reed diffusers.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/config.js"></script>
+<script defer src="assets/projects.js"></script>
+<script defer src="assets/site.js"></script>
+<style>
+.pl { display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 4vw, 60px); align-items: start; padding-top: calc(var(--hdr) + 44px); }
+.side { position: sticky; top: calc(var(--hdr) + 30px); display: grid; gap: 4px; }
+.side h1 { font: 500 30px/1.05 var(--fd); letter-spacing: -.03em; margin-bottom: 22px; }
+.side details { border-top: 1px solid var(--line); }
+.side summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; padding: 13px 0; font-size: 14px; font-weight: 500; }
+.side summary::-webkit-details-marker { display: none; }
+.side summary::after { content: "+"; color: var(--ink3); }
+.side details[open] summary::after { content: "–"; }
+.side .opts { display: grid; gap: 2px; padding-bottom: 12px; }
+.side .opts button { text-align: left; background: none; border: 0; padding: 5px 0; font-size: 14px; color: var(--ink2); display: flex; justify-content: space-between; }
+.side .opts button.on { color: var(--ink); font-weight: 500; }
+.side .opts button.on::after { content: "●"; font-size: 8px; padding-top: 5px; }
+.side .reset { margin-top: 14px; background: none; border: 0; padding: 0; font-size: 13px; color: var(--ink2); text-align: left; text-decoration: underline; text-underline-offset: 3px; }
+.grid-p { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 14px; }
+.pj { display: grid; gap: 6px; align-content: start; }
+.pj .media { aspect-ratio: 4 / 4.2; margin-bottom: 10px; }
+.pj .media img { position: absolute; inset: 0; transition: opacity .7s var(--ease), transform 1.2s var(--ease); }
+.pj .media .alt { opacity: 0; }
+.pj:hover .media .alt { opacity: 1; }
+.pj:hover .media img { transform: scale(1.04); }
+.pj h3 { font-size: 17px; letter-spacing: -.015em; }
+.pj .code { font-size: 12.5px; color: var(--ink3); }
+.pj .more { font-size: 13px; margin-top: 4px; opacity: 0; transform: translateX(-6px); transition: all .4s var(--ease); }
+.pj:hover .more { opacity: 1; transform: none; }
+.count { font-size: 13px; color: var(--ink2); margin-bottom: 18px; }
+.solution { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.solution div { padding: 28px 28px 0 0; display: grid; gap: 10px; }
+.solution b { font: 500 13px var(--f); color: var(--ink3); }
+@media (max-width: 1080px) { .grid-p { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) {
+  .pl { grid-template-columns: 1fr; }
+  .side { position: static; }
+  .side details { display: inline-block; }
+  .solution { grid-template-columns: 1fr; }
+  .pj .more { opacity: 1; transform: none; }
+}
+@media (max-width: 480px) { .grid-p { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="projects">
+<main>
+  <div class="wrap pl" data-note="Project list: filters on the left, three-column cards on the right; hovering a card shows a second view.
+Cards come from assets/projects.js (cover and hover image per project; replace the demo photo in assets/img/photos with your photos).
+Filter buttons must match its type / space / size / system values exactly: add a button when you add a new value.
+Combined values such as "Candle + Diffuser" are split on " + ", so one project shows under both Candle and Diffuser.">
+    <aside class="side" data-rv>
+      <h1>Projects</h1>
+      <details open><summary>Type</summary><div class="opts" data-k="type"><button class="on" data-v="">All</button><button data-v="Hotel">Hotel</button><button data-v="Retail">Retail</button><button data-v="Wellness">Wellness</button><button data-v="Hospitality">Hospitality</button><button data-v="Office">Office</button><button data-v="Event">Event</button><button data-v="Home">Home</button><button data-v="Showroom">Showroom</button></div></details>
+      <details><summary>Space</summary><div class="opts" data-k="space"><button class="on" data-v="">All</button><button data-v="Lobby">Lobby</button><button data-v="Guest rooms">Guest rooms</button><button data-v="Store">Store</button><button data-v="Spa">Spa</button><button data-v="Restaurant">Restaurant</button><button data-v="Café">Café</button><button data-v="Gallery">Gallery</button><button data-v="Venue">Venue</button><button data-v="Living room">Living room</button></div></details>
+      <details><summary>Size</summary><div class="opts" data-k="size"><button class="on" data-v="">All</button><button data-v="S">S · up to 30 m²</button><button data-v="M">M · 30–100 m²</button><button data-v="L">L · 100 m²+</button></div></details>
+      <details><summary>Collection</summary><div class="opts" data-k="system"><button class="on" data-v="">All</button><button data-v="Candle">Candles</button><button data-v="Diffuser">Reed diffusers</button></div></details>
+      <button class="reset" id="reset">Clear filters</button>
+    </aside>
+    <div>
+      <p class="count" id="count"></p>
+      <div class="grid-p stagger" id="plist"></div>
+      <p class="muted" id="none" style="display:none">No projects match these filters.</p>
+    </div>
+  </div>
+
+  <section class="sec" data-note="How a scent project works: three short steps for business visitors. Static copy, edit it here.">
+    <div class="wrap head"><h2 class="d2 split">A scent for every kind of space.</h2></div>
+    <div class="wrap solution stagger">
+      <div><b>01</b><h3 class="d3">Smell</h3><p class="muted">We send samples from the library, or blend a scent for your brand.</p></div>
+      <div><b>02</b><h3 class="d3">Place</h3><p class="muted">Candles where people pause, diffusers where they pass.</p></div>
+      <div><b>03</b><h3 class="d3">Refill</h3><p class="muted">Refills on a plan you set. The vessels stay.</p></div>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <div class="wrap"><div class="cta"><div class="stack"><h2 class="d3">Scenting a hotel, store or event?</h2><p class="muted">Tell us about the space. We reply within 2 working days.</p></div><a class="btn" href="quote.html?from=projects">Start a project <span class="arr">→</span></a></div></div>
+  </section>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sel = { type: '', space: '', size: '', system: '' };
+  const cards = [...document.querySelectorAll('#plist .pj')];
+  const apply = () => {
+    let n = 0;
+    cards.forEach(c => { const ok = Object.entries(sel).every(([k, v]) => !v || (c.dataset[k] || '').split(' + ').includes(v)); c.style.display = ok ? '' : 'none'; if (ok) n++; });
+    document.getElementById('count').textContent = n + (n === 1 ? ' project' : ' projects');
+    document.getElementById('none').style.display = n ? 'none' : 'block';
+  };
+  document.querySelectorAll('.opts').forEach(g => g.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    sel[g.dataset.k] = b.dataset.v;
+    g.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+    apply();
+  }));
+  document.getElementById('reset').onclick = () => { Object.keys(sel).forEach(k => sel[k] = ''); document.querySelectorAll('.opts').forEach(g => g.querySelectorAll('button').forEach((x, i) => x.classList.toggle('on', i === 0))); apply(); };
+  apply();
+});
+</script>
+</body>
+</html>

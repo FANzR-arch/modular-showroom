@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trade & Custom Scent Enquiry | Solenne</title>
+<meta name="description" content="Trade, hotel and custom-scent enquiries: tell Solenne about your spaces and get samples, a proposal and a price.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/config.js"></script><script defer src="assets/site.js"></script>
+<style>
+body { background: var(--bg); }
+.q { max-width: 760px; margin: 0 auto; padding: calc(var(--hdr) + clamp(48px, 7vw, 100px)) var(--pad) 100px; }
+.flow { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); margin: 40px 0 18px; }
+.flow div { padding: 18px 18px 0 0; display: grid; gap: 4px; font-size: 14.5px; }
+.flow b { font: 500 12.5px var(--f); color: var(--ink3); }
+.expect { display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; color: var(--ink2); }
+.expect span::before { content: "— "; }
+fieldset { border: 0; padding: 0; margin: 56px 0 0; }
+legend { font: 500 clamp(22px, 2.2vw, 28px)/1.1 var(--fd); letter-spacing: -.02em; margin-bottom: 26px; padding: 0; }
+.setchip { display: none; align-items: center; gap: 14px; background: var(--bg2); padding: 14px 18px; margin-top: 40px; font-size: 14px; }
+.setchip.on { display: flex; }
+.setchip b { font-weight: 600; letter-spacing: .02em; }
+.opt { color: var(--ink3); font-size: 12px; margin-left: 4px; }
+.submit { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.submit p { font-size: 13px; color: var(--ink2); max-width: 46ch; }
+.drop { border: 1px dashed var(--line); padding: 22px; text-align: center; font-size: 14px; color: var(--ink2); cursor: pointer; transition: border-color .3s; }
+.drop:hover { border-color: var(--ink); }
+.done { display: none; }
+.sent .form { display: none; }
+.sent .done { display: block; }
+.done .next { display: grid; gap: 0; border-top: 1px solid var(--line); margin-top: 40px; }
+.done .next a { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+</style>
+</head>
+<body data-page="quote" data-header="minimal">
+<main class="q" id="q" data-note="Trade and custom-scent enquiry form: where every “Get a quote” button lands. Single column, minimal header.
+Process and expectations first, then the fields: your business, your spaces, scent preferences, a message. Four required fields (name, email, business type, country).
+A ?set= (project ID) or ?list= (comma-separated codes) in the URL fills the read-only “Starting from” chip. Front end only: plug your form endpoint into the script.">
+  <div class="form">
+    <h1 class="d1 split">Trade &amp; custom scent</h1>
+    <div class="flow stagger">
+      <div><b>01</b>Tell us about your spaces</div>
+      <div><b>02</b>Smell the samples</div>
+      <div><b>03</b>Receive a proposal &amp; price</div>
+    </div>
+    <div class="expect" data-rv><span>About 5 minutes</span><span>We reply within 2 working days</span><span>Free, no obligation</span></div>
+
+    <div class="setchip" id="setchip"><span class="muted">Starting from</span><b id="setid"></b><button type="button" class="ic" aria-label="Remove" onclick="this.parentElement.classList.remove('on');document.getElementById('setfield').value=''" style="margin-left:auto;width:30px;height:30px">×</button></div>
+
+    <!-- Front end only: submitting shows the thank-you screen and sends nothing.
+         To receive requests, point the form action at your form endpoint, or send new FormData(f) with fetch in the script below before adding .sent. -->
+    <form id="f" novalidate>
+      <input type="hidden" id="setfield" name="set">
+      <fieldset data-rv>
+        <legend>About your business</legend>
+        <div class="fgrid">
+          <div class="field"><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
+          <div class="field full"><label for="co">Business name<span class="opt">optional</span></label><input id="co" name="company" autocomplete="organization"></div>
+          <div class="field full"><label>Business type</label>
+            <div class="seg">
+              <label><input type="radio" name="business" value="hotel" required><span>Hotel</span></label>
+              <label><input type="radio" name="business" value="retail"><span>Retail</span></label>
+              <label><input type="radio" name="business" value="wellness"><span>Spa / wellness</span></label>
+              <label><input type="radio" name="business" value="hospitality"><span>Restaurant / café</span></label>
+              <label><input type="radio" name="business" value="office"><span>Office</span></label>
+              <label><input type="radio" name="business" value="event"><span>Event</span></label>
+              <label><input type="radio" name="business" value="designer"><span>Interior designer</span></label>
+              <label><input type="radio" name="business" value="other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="field"><label for="c">Country</label><input id="c" name="country" required autocomplete="country-name"></div>
+          <div class="field"><label for="city">City<span class="opt">optional</span></label><input id="city" name="city" autocomplete="address-level2"></div>
+        </div>
+      </fieldset>
+
+      <fieldset data-rv>
+        <legend>About your spaces<span class="opt" style="font:400 13px var(--f)"> &nbsp;optional</span></legend>
+        <div class="fgrid">
+          <div class="field"><label for="sp">Main space</label><select id="sp" name="space"><option value="">Select</option><option>Lobby / reception</option><option>Guest rooms</option><option>Store</option><option>Spa / treatment rooms</option><option>Restaurant / café</option><option>Office</option><option>Event venue</option><option>Other</option></select></div>
+          <div class="field"><label for="ns">Number of spaces or rooms</label><input id="ns" name="spaces" inputmode="numeric"></div>
+          <div class="field full"><label>Collection</label>
+            <div class="seg">
+              <label><input type="checkbox" name="collection" value="candles"><span>Candles</span></label>
+              <label><input type="checkbox" name="collection" value="diffusers"><span>Reed diffusers</span></label>
+              <label><input type="checkbox" name="collection" value="objects"><span>Objects &amp; gift boxes</span></label>
+            </div>
+          </div>
+          <div class="field"><label for="qty">Quantity per order</label><select id="qty" name="quantity"><option value="">Select</option><option>Under 50 pieces</option><option>50 – 200 pieces</option><option>200 – 1,000 pieces</option><option>1,000+ pieces</option><option>Not sure yet</option></select></div>
+          <div class="field"><label for="fr">How often</label><select id="fr" name="frequency"><option value="">Select</option><option>One-off (event or gift)</option><option>Monthly refills</option><option>Quarterly refills</option><option>Seasonal changes</option><option>Not sure yet</option></select></div>
+          <div class="field full"><label>Photos or floor plan</label><label class="drop"><input type="file" name="files" accept="image/*,.pdf" multiple hidden onchange="this.nextElementSibling.textContent=this.files.length+' file(s) added'"><span>Drop photos or a plan here or click to add</span></label></div>
+        </div>
+      </fieldset>
+
+      <fieldset data-rv>
+        <legend>Scent<span class="opt" style="font:400 13px var(--f)"> &nbsp;optional</span></legend>
+        <div class="fgrid">
+          <div class="field full"><label>Families you like</label>
+            <div class="seg">
+              <label><input type="checkbox" name="family" value="woody"><span>Woody</span></label>
+              <label><input type="checkbox" name="family" value="floral"><span>Floral</span></label>
+              <label><input type="checkbox" name="family" value="fresh"><span>Fresh</span></label>
+              <label><input type="checkbox" name="family" value="amber"><span>Amber</span></label>
+              <label><input type="checkbox" name="family" value="unsure"><span>Not sure</span></label>
+            </div>
+          </div>
+          <div class="field full"><label>A custom scent for your brand?</label>
+            <div class="seg">
+              <label><input type="radio" name="custom" value="yes"><span>Yes</span></label>
+              <label><input type="radio" name="custom" value="no"><span>No, from the library</span></label>
+              <label><input type="radio" name="custom" value="maybe"><span>Let's talk</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset data-rv>
+        <legend>Anything else?</legend>
+        <div class="field"><label for="m">Message</label><textarea id="m" name="message" placeholder="Opening date, label or packaging needs, scents you already use, anything to avoid?"></textarea></div>
+      </fieldset>
+
+      <div class="submit" data-rv>
+        <p>We only use your details to prepare your proposal. See our <a href="legal.html#privacy" style="border-bottom:1px solid">privacy policy</a>.</p>
+        <button class="btn" type="submit">Send enquiry <span class="arr">→</span></button>
+      </div>
+    </form>
+  </div>
+
+  <div class="done" aria-live="polite">
+    <h2 class="d1">Thank you.</h2>
+    <p class="lead" style="margin-top:24px">Your enquiry is with the studio. You'll hear from us within 2 working days, usually with a sample suggestion.</p>
+    <div class="next">
+      <a href="scents.html">While you wait: the scent library <span>→</span></a>
+      <a href="projects.html">See our projects <span>→</span></a>
+      <a href="candles.html">Back to the candles <span>→</span></a>
+    </div>
+  </div>
+</main>
+<script>
+(() => {
+  const q = new URLSearchParams(location.search);
+  const set = q.get('set') || (q.get('list') ? 'Order list: ' + q.get('list').split(',').join(', ') : '');
+  if (set) { document.getElementById('setid').textContent = set; document.getElementById('setchip').classList.add('on'); document.getElementById('setfield').value = set; }
+  const f = document.getElementById('f');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    f.querySelectorAll('[required]').forEach(el => {
+      const bad = el.type === 'radio' ? !f.querySelector(`[name="${el.name}"]:checked`) : !el.value.trim() || (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value));
+      const box = el.closest('.field'); box.style.color = bad ? '#c0392b' : '';
+      if (bad) ok = false;
+    });
+    if (!ok) { f.querySelector('.field[style*="c0392b"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+    // Form endpoint: send new FormData(f) to your endpoint here with fetch, then show the thank-you screen
+    document.getElementById('q').classList.add('sent');
+    scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

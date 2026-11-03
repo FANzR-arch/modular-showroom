@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact | Solenne</title>
+<meta name="description" content="Contact Solenne by email, phone, WhatsApp or form. Studio visits and scent testing by appointment.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/config.js"></script><script defer src="assets/site.js"></script>
+<style>
+.ways { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.ways > div { padding: 32px 32px 0 0; display: grid; gap: 14px; align-content: start; }
+.ways > div + div { border-left: 1px solid var(--line); padding-left: 32px; }
+.ways b { font-size: 13px; color: var(--ink3); font-weight: 500; }
+.ways a.big { font: 500 clamp(20px, 1.8vw, 26px)/1.25 var(--fd); letter-spacing: -.02em; border-bottom: 1px solid var(--line); padding-bottom: 12px; display: flex; justify-content: space-between; gap: 10px; transition: border-color .3s; }
+.ways a.big:hover { border-color: var(--ink); }
+.cform { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(30px, 5vw, 90px); }
+.co { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 90px); align-items: center; }
+.co dl { margin: 0; display: grid; gap: 18px; }
+.co dt { font-size: 12.5px; color: var(--ink3); }
+.co dd { margin: 2px 0 0; }
+.sent .fgrid, .sent .sbtn { display: none; }
+.thanks { display: none; }
+.sent .thanks { display: block; }
+.ways a.big[data-email]::after, .ways a.big[data-phone]::after { content: "→"; }
+.co dd a { border-bottom: 1px solid var(--line); }
+@media (max-width: 760px) { .ways, .cform, .co { grid-template-columns: 1fr; } .ways > div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); margin-top: 28px; } }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ContactPage", "name": "Contact", "mainEntity": {"@context": "https://schema.org", "@type": "Organization", "name": "Solenne", "legalName": "Solenne Studio Ltd", "url": "https://www.example.com", "email": "hello@example.com", "telephone": "+1-555-0100", "address": {"@type": "PostalAddress", "streetAddress": "Example Street 1", "addressLocality": "Example City"}}}</script>
+</head>
+<body data-page="contact">
+<main>
+  <section class="phero" data-note="Contact: one page for every visitor, with three ways in above the fold: find it yourself, talk to us directly, or write.
+Email, phone and WhatsApp links are filled from assets/config.js through the data-email / data-phone / data-wa hooks (WhatsApp disappears when it is switched off).">
+    <div class="wrap"><h1 class="d1 split">Contact</h1><p class="lead" data-rv>Questions about a scent, an order or a hotel project. Pick the quickest way to reach us.</p></div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap ways stagger">
+      <div><b>Find it yourself</b><a class="big" href="faqs.html">FAQs <span>→</span></a><a class="big" href="scents.html">Scent library <span>→</span></a><a class="big" href="assets/catalogue/catalogue.pdf" download>Catalogue PDF <span>↓</span></a></div>
+      <div><b>Talk to us directly</b><a class="big" data-email href="mailto:hello@example.com">hello@example.com</a><a class="big" data-phone href="tel:+15550100">+1 555 0100</a><a class="big" data-wa href="#" target="_blank" rel="noopener">WhatsApp <span>→</span></a></div>
+      <div><b>Send a message</b><a class="big" href="#form">Contact form <span>↓</span></a><a class="big" href="quote.html?from=contact">Trade &amp; custom scent <span>→</span></a></div>
+    </div>
+  </section>
+
+  <section id="form" class="sec alt" data-note="Contact form: a short version of the enquiry form, without the project ID or scent questions. Front end only: plug your form endpoint into the script at the bottom.">
+    <div class="wrap cform">
+      <h2 class="d2 split">Write to us.</h2>
+      <!-- Front end only: submitting shows the thank-you line and sends nothing.
+           To receive messages, point the form action at your form endpoint, or send new FormData(f) with fetch in the script at the bottom. -->
+      <form id="cf" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="cc">Country</label><input id="cc" name="country" required autocomplete="country-name"></div>
+          <div class="field"><label for="ci">City</label><input id="ci" name="city" autocomplete="address-level2"></div>
+          <div class="field full"><label>About</label><div class="seg">
+            <label><input type="radio" name="topic" value="order" checked><span>An order</span></label>
+            <label><input type="radio" name="topic" value="scent"><span>A scent</span></label>
+            <label><input type="radio" name="topic" value="trade"><span>Trade / stockist</span></label>
+            <label><input type="radio" name="topic" value="visit"><span>A studio visit</span></label>
+          </div></div>
+          <div class="field full"><label for="m">Message</label><textarea id="m" name="message" required></textarea></div>
+        </div>
+        <div class="sbtn" style="margin-top:34px"><button class="btn" type="submit">Send <span class="arr">→</span></button></div>
+        <p class="thanks lead">Thank you. We'll reply within 2 working days.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec" data-note="Company details: legal name, studio address and visiting rules. Edit the address here and in the JSON-LD in the head.
+Phone and email come from assets/config.js. The image is a demo photo in assets/img/photos (swap it for a photo of your studio).">
+    <div class="wrap co">
+      <div class="media r43" data-rv="wipe"><img src="assets/img/photos/tester-table.jpg" alt="Photo: the studio tester table with open candles and reed diffusers in rows, a window behind, soft afternoon light" width="1536" height="1024" loading="lazy"></div>
+      <div class="stack-lg">
+        <h2 class="d2 split">Visit the studio.</h2>
+        <dl class="stagger">
+          <div><dt>Company</dt><dd>Solenne Studio Ltd</dd></div>
+          <div><dt>Studio</dt><dd>Example Street 1, Example City</dd></div>
+          <div><dt>Phone</dt><dd><a data-phone href="tel:+15550100">+1 555 0100</a></dd></div>
+          <div><dt>Email</dt><dd><a data-email href="mailto:hello@example.com">hello@example.com</a></dd></div>
+          <div><dt>Visits</dt><dd>By appointment, to smell the full library. Message us to book.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+document.getElementById('cf').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target; let ok = true;
+  f.querySelectorAll('[required]').forEach(el => { const bad = !el.value.trim(); el.closest('.field').style.color = bad ? '#c0392b' : ''; if (bad) ok = false; });
+  // Form endpoint: send new FormData(f) to your endpoint here with fetch, then show the thank-you line
+  if (ok) f.classList.add('sent');
+});
+</script>
+</body>
+</html>

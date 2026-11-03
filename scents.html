@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scent Library – Every Scent, Size and Refill | Solenne</title>
+<meta name="description" content="The full Solenne scent library: twelve scents in four families, as candles and reed diffusers, plus refills and accessories, with codes and prices.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/parts.js"></script>
+<script defer src="assets/config.js"></script><script defer src="assets/site.js"></script>
+<style>
+.cat { padding: clamp(48px, 6vw, 90px) 0 0; }
+.cat-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 28px; flex-wrap: wrap; }
+.cat-head p { color: var(--ink2); font-size: 14.5px; max-width: 52ch; }
+.spec { display: grid; grid-template-columns: 280px 1fr; gap: clamp(20px, 3vw, 48px); align-items: start; }
+.spec .cut { aspect-ratio: 1; }
+.spec table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.spec th { text-align: left; font-weight: 500; font-size: 12.5px; color: var(--ink3); padding: 0 12px 12px 0; border-bottom: 1px solid var(--ink); }
+.spec td { padding: 15px 12px 15px 0; border-bottom: 1px solid var(--line); }
+.spec code { font: 500 13px var(--f); }
+@media (max-width: 760px) { .spec { grid-template-columns: 1fr; } .spec .cut { aspect-ratio: 16 / 9; } .spec th:nth-child(4), .spec td:nth-child(4) { display: none; } }
+.catalogue { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 90px); align-items: center; }
+.catalogue .cover { aspect-ratio: 3 / 4; max-width: 380px; background: var(--bg); box-shadow: 0 30px 60px rgb(0 0 0 / .12); display: grid; grid-template-rows: auto 1fr auto; padding: 28px; gap: 16px; transform: rotate(-3deg); transition: transform .8s var(--ease); }
+.catalogue .cover:hover { transform: rotate(0) translateY(-6px); }
+.catalogue .cover .cut { background: var(--bg2); }
+.catalogue .cover b { font: 600 22px var(--fd); letter-spacing: -.02em; }
+@media (max-width: 760px) { .catalogue { grid-template-columns: 1fr; } }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Solenne Scent Library", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Cedar Room candle 220 g", "sku": "C-S01", "brand": {"@type": "Brand", "name": "Solenne"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Iris Hour diffuser 200 ml", "sku": "D-S04", "brand": {"@type": "Brand", "name": "Solenne"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Diffuser refill 500 ml", "sku": "R-D500", "brand": {"@type": "Brand", "name": "Solenne"}}}]}</script>
+</head>
+<body data-page="scents">
+<main>
+  <section class="phero" data-note="Catalogue page: every item with its code, size and price, for buyers who want to choose on their own.
+Never leave a price blank: items without one show the PRICE text from assets/parts.js.
+Every category, card and table comes from assets/parts.js; the format switch (FORMATS) re-renders them.">
+    <div class="wrap"><h1 class="d1 split">Scent library</h1><p class="lead" data-rv>Every scent, size and refill, with a code and a price.</p></div>
+  </section>
+
+  <nav class="pills" aria-label="Categories">
+    <div class="wrap in">
+      <a href="#woody">Woody</a><a href="#floral">Floral</a><a href="#fresh">Fresh</a><a href="#amber">Amber</a><a href="#refills">Refills</a><a href="#accessories">Accessories</a><a href="#catalogue">Catalogue</a>
+      <span class="sp"></span>
+      <div class="chips" id="format"></div>
+    </div>
+  </nav>
+
+  <div class="wrap" id="cats"></div>
+
+  <section id="catalogue" class="sec alt" style="margin-top:clamp(70px,9vw,130px)" data-note="Catalogue download for shops, hotels and other trade buyers.
+The PDF is printed from catalogue.html, which reads the same assets/parts.js (see README: Catalogue PDF).">
+    <div class="wrap catalogue">
+      <div class="cover" data-rv><span class="small muted">SOLENNE</span><div class="cut"><img src="assets/img/photos/still-life-day.jpg" alt="Photo: catalogue cover with a candle and a diffuser"></div><b>Scent<br>Catalogue</b></div>
+      <div class="stack-lg">
+        <h2 class="d2 split">The full catalogue.</h2>
+        <p class="lead" data-rv>Every scent, size and refill with codes and trade prices. For shops, hotels and interior designers.</p>
+        <div data-rv><a class="btn" href="assets/catalogue/catalogue.pdf" download>Download PDF <span class="arr">↓</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <div class="wrap"><div class="cta"><h2 class="d3">Ordering for a shop or hotel? Send us your list.</h2><a class="btn" href="quote.html?from=scents">Get a quote <span class="arr">→</span></a></div></div>
+  </section>
+</main>
+
+
+<script>
+(() => {
+  const { CATS, FORMATS, COLS, PRICE, pic } = window.PARTS;
+  let fmt = FORMATS[0].id;
+  const sw = document.getElementById('format');
+  sw.innerHTML = FORMATS.map((f, i) => `<button class="${i ? '' : 'on'}" data-f="${f.id}">${f.label}</button>`).join('');
+  const root = document.getElementById('cats');
+  // table categories: one picture and a table; the rest: a card per item
+  const table = items => `<div class="spec"><div class="cut">${pic(items[0])}</div>
+    <table><thead><tr>${COLS.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${items.map(it => `<tr><td><code>${it.c}</code></td><td>${it.n}</td><td>${it.s}</td><td>${it.u || ''}</td><td>${it.price || PRICE}</td></tr>`).join('')}</tbody></table></div>`;
+  const render = () => {
+    root.innerHTML = CATS.map(cat => `<section class="cat" id="${cat.id}">
+      <div class="cat-head"><h2 class="d3">${cat.t}</h2><p>${cat.d}</p></div>
+      ${cat.table ? table(cat.items(fmt)) : `<div class="pgrid">${cat.items(fmt).map(it => `<div class="pcard" data-rv>
+        <div class="cut">${pic(it)}</div>
+        <div class="nm"><span>${it.n}</span><code>${it.c}</code></div>
+        <div class="sp">${it.u || ''}</div><div class="sp">${it.s}</div><div class="pr">${it.price || PRICE}</div>
+      </div>`).join('')}</div>`}</section>`).join('');
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
+    root.querySelectorAll('[data-rv]').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 0.07 + 's'; io.observe(el); });
+  };
+  sw.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    fmt = b.dataset.f;
+    [...b.parentElement.children].forEach(x => x.classList.toggle('on', x === b));
+    render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>

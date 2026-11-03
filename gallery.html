@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gallery | Solenne</title>
+<meta name="description" content="Solenne candles and reed diffusers in homes, hotels, stores, spas, restaurants and events.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/config.js"></script><script defer src="assets/site.js"></script>
+<style>
+.filters { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+.wall { columns: 3; column-gap: 14px; }
+.wall figure { margin: 0 0 14px; break-inside: avoid; cursor: zoom-in; }
+.wall .media img { height: auto; transition: transform 1.1s var(--ease); }
+.wall figure:hover img { transform: scale(1.04); }
+.wall figcaption { font-size: 13px; color: var(--ink2); padding: 10px 0 8px; display: flex; justify-content: space-between; gap: 10px; }
+.wall figcaption b { color: var(--ink); font-weight: 500; }
+.wall figcaption a { color: var(--ink2); border-bottom: 1px solid var(--line); }
+.wall figcaption a:hover { color: var(--ink); border-color: var(--ink); }
+.wall .media.t { aspect-ratio: 4 / 5; }
+.wall .media.t img { height: 100%; }
+@media (max-width: 1080px) { .wall { columns: 2; } }
+@media (max-width: 560px) { .wall { columns: 1; } }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Gallery", "about": "Solenne scented candles and reed diffusers", "url": "https://www.example.com/gallery.html"}</script>
+</head>
+<body data-page="gallery">
+<main>
+  <section class="phero" data-note="Gallery: every scene in one masonry wall, filtered by space type and collection.
+Each figure is written by hand below: data-tags (space) and data-system (Candle and/or Diffuser, space-separated) drive the two chip bars, data-lb opens the lightbox, the caption links to the project or product page.
+images are demo photos in assets/img/photos (swap each src and data-lb for your own photo). Add the class t to a .media box for a tall crop.">
+    <div class="wrap"><h1 class="d1 split">Gallery</h1><p class="lead" data-rv>Candlelight and scent, room by room.</p></div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="filters" data-rv><div class="chips" data-filter="#wall" data-rv>
+        <button class="on" data-f="all">All</button><button data-f="home">Home</button><button data-f="hotel">Hotel</button><button data-f="retail">Retail</button><button data-f="spa">Spa</button><button data-f="dining">Restaurant &amp; café</button><button data-f="office">Office</button><button data-f="event">Event</button><button data-f="studio">Studio</button>
+      </div><div class="chips" data-filter="#wall" data-key="system"><button class="on" data-f="all">All collections</button><button data-f="Candle">Candles</button><button data-f="Diffuser">Diffusers</button></div></div>
+      <div class="wall" id="wall">
+        <figure data-tags="hotel" data-system="Diffuser Candle" data-lb="assets/img/photos/hotel-lounge.jpg" data-cap="Hotel lobby · P-01"><div class="media"><img src="assets/img/photos/hotel-lounge.jpg" alt="Photo: three 1 L reed diffusers on a long stone reception counter in a hotel lobby, warm morning light" width="1536" height="1024" loading="lazy"></div><figcaption><b>Hotel lobby</b><a href="project.html?id=P-01">P-01</a></figcaption></figure>
+        <figure data-tags="hotel" data-system="Candle" data-lb="assets/img/photos/hotel-nightstand.jpg" data-cap="Nightstand candle · P-02"><div class="media t"><img src="assets/img/photos/hotel-nightstand.jpg" alt="Photo: a lit 120 g candle on a hotel nightstand, its lid used as a coaster, bedside lamp glow in the evening" width="1536" height="1024" loading="lazy"></div><figcaption><b>Nightstand candle</b><a href="project.html?id=P-02">P-02</a></figcaption></figure>
+        <figure data-tags="retail" data-system="Diffuser" data-lb="assets/img/photos/fashion-store.jpg" data-cap="Fashion flagship · P-03"><div class="media"><img src="assets/img/photos/fashion-store.jpg" alt="Photo: a 500 ml reed diffuser on a pale oak display table between folded knitwear in a fashion store, daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Fashion flagship</b><a href="project.html?id=P-03">P-03</a></figcaption></figure>
+        <figure data-tags="home" data-system="Candle" data-lb="assets/img/photos/still-life-day.jpg" data-cap="Unlit, 220 g · Candles"><div class="media t"><img src="assets/img/photos/still-life-day.jpg" alt="Photo: an unlit 220 g candle in a ribbed glass vessel on a linen-covered side table, soft north light" width="1536" height="1024" loading="lazy"></div><figcaption><b>Unlit, 220 g</b><a href="candles.html">Candles</a></figcaption></figure>
+        <figure data-tags="spa" data-system="Diffuser" data-lb="assets/img/photos/diffuser-product.jpg" data-cap="Treatment room · P-05"><div class="media"><img src="assets/img/photos/diffuser-product.jpg" alt="Photo: a 100 ml reed diffuser on a wooden ledge beside rolled towels in a dim spa treatment room" width="1536" height="1024" loading="lazy"></div><figcaption><b>Treatment room</b><a href="project.html?id=P-05">P-05</a></figcaption></figure>
+        <figure data-tags="dining" data-system="Candle" data-lb="assets/img/photos/restaurant.jpg" data-cap="Restaurant tables · P-06"><div class="media"><img src="assets/img/photos/restaurant.jpg" alt="Photo: unscented 220 g candles lit on bare wooden restaurant tables set for dinner, low evening light" width="1536" height="1024" loading="lazy"></div><figcaption><b>Restaurant tables</b><a href="project.html?id=P-06">P-06</a></figcaption></figure>
+        <figure data-tags="studio" data-system="Candle" data-lb="assets/img/photos/pouring.jpg" data-cap="Pouring wax · How we make it"><div class="media t"><img src="assets/img/photos/pouring.jpg" alt="Photo: hands pouring melted wax from a metal jug into a row of glass vessels on a studio workbench, daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Pouring wax</b><a href="manufacturing.html">How we make it</a></figcaption></figure>
+        <figure data-tags="home" data-system="Diffuser" data-lb="assets/img/photos/hallway.jpg" data-cap="Hall diffuser · P-11"><div class="media"><img src="assets/img/photos/hallway.jpg" alt="Photo: a 200 ml reed diffuser on a narrow hall console beside a ceramic key bowl, afternoon light" width="1536" height="1024" loading="lazy"></div><figcaption><b>Hall diffuser</b><a href="project.html?id=P-11">P-11</a></figcaption></figure>
+        <figure data-tags="retail" data-system="Candle Diffuser" data-lb="assets/img/photos/tester-table.jpg" data-cap="Tester tray · P-04"><div class="media"><img src="assets/img/photos/tester-table.jpg" alt="Photo: a tester tray of six open candles next to the till of a small concept store, overhead daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Tester tray</b><a href="project.html?id=P-04">P-04</a></figcaption></figure>
+        <figure data-tags="event" data-system="Candle" data-lb="assets/img/photos/gallery-opening.jpg" data-cap="Gallery opening · P-09"><div class="media"><img src="assets/img/photos/gallery-opening.jpg" alt="Photo: lit 220 g candles in hurricane glasses lining a white gallery floor at night" width="1536" height="1024" loading="lazy"></div><figcaption><b>Gallery opening</b><a href="project.html?id=P-09">P-09</a></figcaption></figure>
+        <figure data-tags="home" data-system="Candle" data-lb="assets/img/photos/refill.jpg" data-cap="Candle refill · Candles"><div class="media t"><img src="assets/img/photos/refill.jpg" alt="Photo: a hand placing a 220 g wax refill into an empty glass vessel on a kitchen counter, daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Candle refill</b><a href="candles.html">Candles</a></figcaption></figure>
+        <figure data-tags="event" data-system="Candle" data-lb="assets/img/photos/restaurant.jpg" data-cap="Wedding dinner · P-10"><div class="media"><img src="assets/img/photos/restaurant.jpg" alt="Photo: unscented pillar candles lit down a long wedding table with linen and greenery, at dusk" width="1536" height="1024" loading="lazy"></div><figcaption><b>Wedding dinner</b><a href="project.html?id=P-10">P-10</a></figcaption></figure>
+        <figure data-tags="dining" data-system="Diffuser" data-lb="assets/img/photos/cafe-books.jpg" data-cap="Book corner · P-07"><div class="media"><img src="assets/img/photos/cafe-books.jpg" alt="Photo: a 200 ml reed diffuser among stacked books in the corner of a café, soft window light" width="1536" height="1024" loading="lazy"></div><figcaption><b>Book corner</b><a href="project.html?id=P-07">P-07</a></figcaption></figure>
+        <figure data-tags="office" data-system="Diffuser" data-lb="assets/img/photos/hotel-lounge.jpg" data-cap="Office reception · P-08"><div class="media t"><img src="assets/img/photos/hotel-lounge.jpg" alt="Photo: a 500 ml reed diffuser on a clean white office reception counter, cool daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Office reception</b><a href="project.html?id=P-08">P-08</a></figcaption></figure>
+        <figure data-tags="studio" data-system="Candle" data-lb="assets/img/photos/gift-box.jpg" data-cap="Gift box · Objects"><div class="media"><img src="assets/img/photos/gift-box.jpg" alt="Photo: a 220 g candle, a matchbox and a wick trimmer in an open gift box with tissue paper, top-down daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Gift box</b><a href="objects.html">Objects</a></figcaption></figure>
+        <figure data-tags="hotel" data-system="Candle" data-lb="assets/img/photos/hotel-lounge.jpg" data-cap="Reception candle · P-01"><div class="media"><img src="assets/img/photos/hotel-lounge.jpg" alt="Photo: a lit 400 g candle with a hotel label on a reception counter, warm lamp light" width="1536" height="1024" loading="lazy"></div><figcaption><b>Reception candle</b><a href="project.html?id=P-01">P-01</a></figcaption></figure>
+        <figure data-tags="home" data-system="Candle Diffuser" data-lb="assets/img/photos/living-room.jpg" data-cap="Living room · P-11"><div class="media t"><img src="assets/img/photos/living-room.jpg" alt="Photo: a lit 400 g candle on a low coffee table with a reed diffuser on the windowsill behind, at dusk" width="1536" height="1024" loading="lazy"></div><figcaption><b>Living room</b><a href="project.html?id=P-11">P-11</a></figcaption></figure>
+        <figure data-tags="spa" data-system="Diffuser" data-lb="assets/img/photos/hotel-lounge.jpg" data-cap="Spa reception · P-05"><div class="media"><img src="assets/img/photos/hotel-lounge.jpg" alt="Photo: a 200 ml reed diffuser on a pale stone counter beside a bowl of green tea leaves, bright spa reception" width="1536" height="1024" loading="lazy"></div><figcaption><b>Spa reception</b><a href="project.html?id=P-05">P-05</a></figcaption></figure>
+        <figure data-tags="studio" data-system="Diffuser" data-lb="assets/img/photos/refill.jpg" data-cap="Diffuser refills · Diffusers"><div class="media"><img src="assets/img/photos/refill.jpg" alt="Photo: amber glass refill bottles of 200 ml and 500 ml lined up with fresh bundles of reeds on a studio workbench, daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Diffuser refills</b><a href="diffusers.html">Diffusers</a></figcaption></figure>
+        <figure data-tags="retail" data-system="Diffuser" data-lb="assets/img/photos/refill.jpg" data-cap="Seasonal refill · P-03"><div class="media t"><img src="assets/img/photos/refill.jpg" alt="Photo: hands pouring a refill into a 500 ml diffuser on a shop counter, the reeds laid aside" width="1536" height="1024" loading="lazy"></div><figcaption><b>Seasonal refill</b><a href="project.html?id=P-03">P-03</a></figcaption></figure>
+        <figure data-tags="studio" data-system="Candle Diffuser" data-lb="assets/img/photos/tester-table.jpg" data-cap="Tester wall · P-12"><div class="media"><img src="assets/img/photos/tester-table.jpg" alt="Photo: twelve labelled tester candles and diffusers arranged along a wall in a small showroom, warm evening light" width="1536" height="1024" loading="lazy"></div><figcaption><b>Tester wall</b><a href="project.html?id=P-12">P-12</a></figcaption></figure>
+        <figure data-tags="home" data-system="Candle" data-lb="assets/img/photos/bedroom.jpg" data-cap="Snuffed · Objects"><div class="media"><img src="assets/img/photos/bedroom.jpg" alt="Photo: a brass snuffer putting out a 120 g candle on a bedside table, a thin trail of smoke, dim light" width="1536" height="1024" loading="lazy"></div><figcaption><b>Snuffed</b><a href="objects.html">Objects</a></figcaption></figure>
+        <figure data-tags="hotel" data-system="Candle" data-lb="assets/img/photos/hotel-nightstand.jpg" data-cap="Guest bathroom · P-02"><div class="media t"><img src="assets/img/photos/hotel-nightstand.jpg" alt="Photo: an unlit 120 g candle and a matchbox on a hotel bathroom ledge beside folded towels, daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Guest bathroom</b><a href="project.html?id=P-02">P-02</a></figcaption></figure>
+        <figure data-tags="studio" data-system="Candle" data-lb="assets/img/photos/trimming-wick.jpg" data-cap="Wick trimming · How we make it"><div class="media"><img src="assets/img/photos/trimming-wick.jpg" alt="Photo: hands trimming the cotton wick of a cured candle with a wick trimmer, close-up, daylight" width="1536" height="1024" loading="lazy"></div><figcaption><b>Wick trimming</b><a href="manufacturing.html">How we make it</a></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <div class="wrap"><div class="cta"><h2 class="d3">Want a scent like this for your space?</h2><a class="btn" href="quote.html?from=gallery">Get a quote <span class="arr">→</span></a></div></div>
+  </section>
+</main>
+</body>
+</html>

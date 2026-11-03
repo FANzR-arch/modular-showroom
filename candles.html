@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Candles – Hand-poured, Refillable | Solenne</title>
+<meta name="description" content="Solenne candles: coconut-and-rapeseed wax, a cotton wick and twelve scents, hand-poured in 120 g, 220 g and 400 g vessels made to be refilled.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/config.js"></script><script defer src="assets/site.js"></script>
+<style>
+.shero { padding-top: var(--hdr); display: grid; grid-template-columns: 1fr 1.15fr; min-height: 100svh; max-height: 1100px; }
+.shero .txt { padding: clamp(48px, 7vw, 110px) var(--pad); display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+.shero .media { height: 100%; min-height: 420px; }
+.shero dl { display: grid; grid-template-columns: repeat(3, auto); gap: 8px 36px; margin: 0; justify-content: start; }
+.shero dt { font-size: 12.5px; color: var(--ink3); }
+.shero dd { margin: 0; font-size: 15px; font-weight: 500; }
+
+.statement .d1 { max-width: 15ch; }
+/* the five words stay in place; the current one is simply darker */
+.kw { display: flex; flex-wrap: wrap; gap: 0 .32em; margin: 0; font: 500 clamp(40px, 7vw, 108px)/1.05 var(--fd); letter-spacing: -.045em; }
+.kw span { color: var(--bg3); transition: color .8s var(--ease); }
+.kw span.on { color: var(--ink); }
+
+.parts { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 40px; }
+.parts a { display: grid; gap: 10px; }
+.parts .cut { aspect-ratio: 1; }
+.parts b { font-size: 14px; font-weight: 500; }
+.parts span { font-size: 12.5px; color: var(--ink2); }
+
+.persona { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(30px, 5vw, 90px); align-items: center; }
+.persona blockquote { margin: 0; font: 400 clamp(24px, 2.6vw, 38px)/1.25 var(--fd); letter-spacing: -.02em; }
+
+.details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.details .media { aspect-ratio: 3 / 4; }
+.details h3 { font-size: 19px; margin-top: 18px; letter-spacing: -.02em; }
+.details p { color: var(--ink2); font-size: 14.5px; margin-top: 6px; max-width: 34ch; }
+
+.gal6 { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 15vw; gap: 10px; }
+.gal6 a { overflow: hidden; }
+.gal6 a:nth-child(1) { grid-column: span 3; grid-row: span 2; }
+.gal6 a:nth-child(2), .gal6 a:nth-child(3) { grid-column: span 3; }
+.gal6 a:nth-child(n+4) { grid-column: span 2; }
+.gal6 img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+.gal6 a:hover img { transform: scale(1.05); }
+
+.modes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.mode .media { aspect-ratio: 1; }
+.mode h3 { font-size: 18px; margin-top: 16px; letter-spacing: -.02em; }
+.mode p { font-size: 14px; color: var(--ink2); margin-top: 6px; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); margin-top: 56px; }
+.steps div { padding: 22px 22px 0 0; }
+.steps b { display: block; font: 500 13px var(--f); color: var(--ink3); margin-bottom: 10px; }
+
+.swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.sw { display: grid; gap: 12px; }
+.sw i { aspect-ratio: 1 / 1.1; display: block; border: 1px solid var(--line); }
+.sw b { font-size: 14px; font-weight: 500; }
+.sw span { font-size: 12.5px; color: var(--ink2); }
+
+.grow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grow .media { aspect-ratio: 1; }
+.grow h3 { font-size: 20px; margin-top: 18px; }
+.grow p { font-size: 14.5px; color: var(--ink2); margin-top: 6px; max-width: 34ch; }
+
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 90px); align-items: center; }
+.calc .box { border: 1px solid var(--line); padding: clamp(24px, 3vw, 44px); display: grid; gap: 26px; }
+.calc input[type=range] { width: 100%; accent-color: var(--ink); }
+.calc .out { font: 500 clamp(56px, 7vw, 100px)/1 var(--fd); letter-spacing: -.05em; }
+.calc .row { display: flex; justify-content: space-between; font-size: 14px; }
+
+.cmp { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.cmp th, .cmp td { text-align: left; padding: 16px 12px 16px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.cmp th { font-weight: 500; color: var(--ink2); font-size: 13px; }
+.cmp td:first-child { color: var(--ink2); width: 26%; }
+.cmp td:nth-child(2) { font-weight: 500; }
+.sizes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 64px; }
+.sizes .cut { aspect-ratio: 16 / 9; }
+.sizes .cut img { max-width: 70%; max-height: 70%; }
+
+.process { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 90px); align-items: center; }
+.process ol { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+.process li { counter-increment: s; display: grid; grid-template-columns: 56px 1fr; gap: 10px; padding: 24px 0; border-top: 1px solid var(--line); }
+.process li::before { content: counter(s, decimal-leading-zero); font: 500 14px var(--f); color: var(--ink3); padding-top: 4px; }
+.process li h3 { font-size: 21px; letter-spacing: -.02em; }
+.process li p { color: var(--ink2); margin-top: 6px; font-size: 15px; }
+
+.deliver { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.deliver div { padding: 26px 26px 0 0; display: grid; gap: 8px; }
+.deliver b { font: 500 clamp(28px, 3vw, 44px)/1 var(--fd); letter-spacing: -.03em; }
+
+.faqgrid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(30px, 5vw, 90px); }
+@media (max-width: 1080px) { .parts { grid-template-columns: repeat(3, 1fr); } .modes, .swatches { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) {
+  .shero { grid-template-columns: 1fr; min-height: 0; max-height: none; }
+  .shero .media { min-height: 0; aspect-ratio: 4 / 4.4; order: -1; }
+  .shero dl { grid-template-columns: 1fr 1fr; }
+  .parts { grid-template-columns: 1fr 1fr; }
+  .details, .grow, .calc, .process, .faqgrid, .persona, .sizes { grid-template-columns: 1fr; }
+  .gal6 { grid-template-columns: 1fr 1fr; grid-auto-rows: 42vw; }
+  .gal6 a:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+  .gal6 a:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .steps, .deliver { grid-template-columns: 1fr 1fr; }
+  .cmp { font-size: 13px; }
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Solenne Candle", "category": "Scented candle", "brand": {"@type": "Brand", "name": "Solenne"}, "manufacturer": {"@context": "https://schema.org", "@type": "Organization", "name": "Solenne", "legalName": "Solenne Studio Ltd", "url": "https://www.example.com", "email": "hello@example.com", "telephone": "+1 555 0100", "address": {"@type": "PostalAddress", "streetAddress": "Example Street 1", "addressLocality": "Example City"}}, "description": "A hand-poured scented candle in coconut-and-rapeseed wax with a cotton wick, in 120 g, 220 g and 400 g refillable vessels. Twelve scents in four families.", "material": "Coconut and rapeseed wax, cotton wick, glass or ceramic vessel", "image": "https://www.example.com/assets/img/photos/candle-sizes.jpg"}</script>
+</head>
+<body data-page="candles">
+<main>
+  <!-- 1 hero -->
+  <section class="shero" data-note="Main product page: the longest page on the site and the one that brings in most enquiries.
+Order: build desire, answer each doubt, then make the next step easy.
+Hero: text and three key specs on the left, one large image on the right.
+Replace the demo photos in assets/img/photos with your photos.">
+    <div class="txt">
+      <div class="stack">
+        <h1 class="d1 split">Candles</h1>
+        <p class="lead" data-rv>Hand-poured in coconut-and-rapeseed wax, with a cotton wick and one of twelve scents. In a vessel you refill, not replace.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:34px" data-rv><a class="btn" href="quote.html?from=candles">Get a quote <span class="arr">→</span></a><a class="btn ghost" href="scents.html">Scents & prices</a></div>
+      </div>
+      <dl class="stagger">
+        <div><dt>Sizes</dt><dd>120 / 220 / 400 g</dd></div>
+        <div><dt>Burn time</dt><dd>25 – 80 hours</dd></div>
+        <div><dt>Wax</dt><dd>Coconut & rapeseed</dd></div>
+      </dl>
+    </div>
+    <div class="media" data-rv="side"><img src="assets/img/photos/still-life-day.jpg" alt="Photo: a lit 220 g candle in clear glass on a linen-covered table by a window, soft morning light, a folded throw behind"></div>
+  </section>
+
+  <nav class="pills" aria-label="Sections">
+    <div class="wrap in">
+      <a href="#features">Features</a><a href="#details">Details</a><a href="#gallery">Gallery</a><a href="#burn">Burning</a><a href="#vessels">Vessels</a><a href="#pricing">Pricing</a><a href="#choose">How to choose</a><a href="#process">Process</a><a href="#faq">FAQ</a>
+      <span class="sp"></span><a class="btn" href="quote.html?from=candles">Get a quote</a>
+    </div>
+  </nav>
+
+  <!-- 2 statement + 3 keywords -->
+  <section id="features" class="sec statement" data-note="Statement: the product in one sentence, set against the alternative.
+Keywords: five words that light up in turn (data-cycle in assets/site.js).">
+    <div class="wrap">
+      <h2 class="d1 split">A candle you refill, instead of a jar you throw away.</h2>
+      <p class="kw" data-cycle style="margin-top:clamp(50px,7vw,100px)"><span>Hand-poured.</span><span>Clean.</span><span>Slow.</span><span>Refillable.</span><span>Yours.</span></p>
+    </div>
+  </section>
+
+  <!-- 4 structure -->
+  <section class="sec alt" data-note="Structure: what a candle is made of, plus one card per scent family and one for refills.
+Each card links to its section on scents.html (ids come from assets/parts.js).">
+    <div class="wrap grid2">
+      <div class="stack-lg">
+        <h2 class="d2 split">Wax. Wick. Vessel.</h2>
+        <p class="lead" data-rv>A coconut-and-rapeseed blend, a braided cotton wick and a glass or ceramic vessel. When the wax runs low, a refill drops straight in.</p>
+        <a class="link" href="scents.html" data-rv>See every scent <span class="arr">→</span></a>
+      </div>
+      <div class="media r11" data-rv="wipe"><img src="assets/img/photos/cotton-wicks.jpg" alt="Photo: an unlit candle cut in half to show the wax and the cotton wick, beside its empty glass vessel on a pale bench" loading="lazy"></div>
+    </div>
+    <div class="wrap">
+      <div class="parts stagger">
+        <a href="scents.html#woody"><div class="cut"><img src="assets/img/photos/living-room.jpg" alt="Photo: a Cedar Room candle beside a split cedar log and a sprig of vetiver" loading="lazy"></div><b>Woody</b><span>Cedar Room, Black Fig, Hinoki Bath</span></a>
+        <a href="scents.html#floral"><div class="cut"><img src="assets/img/photos/bedroom.jpg" alt="Photo: an Iris Hour candle beside a single iris stem on white paper" loading="lazy"></div><b>Floral</b><span>Iris Hour, White Courtyard, Rose Smoke</span></a>
+        <a href="scents.html#fresh"><div class="cut"><img src="assets/img/photos/hotel-nightstand.jpg" alt="Photo: a Linen Line candle on a stack of folded white linen" loading="lazy"></div><b>Fresh</b><span>Linen Line, Sea Fennel, Green Tea Garden</span></a>
+        <a href="scents.html#amber"><div class="cut"><img src="assets/img/photos/cafe-books.jpg" alt="Photo: an Ember Library candle on a pile of old leather-bound books" loading="lazy"></div><b>Amber</b><span>Ember Library, Tobacco Honey, Cardamom Ash</span></a>
+        <a href="scents.html#refills"><div class="cut"><img src="assets/img/photos/refill.jpg" alt="Photo: a wax refill being lowered into an empty 220 g glass vessel" loading="lazy"></div><b>Refills</b><span>120 / 220 / 400 g</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 persona (notes mode only) -->
+  <section class="sec note-only" data-note="Optional: a quote from the person who blends the scents, next to a real photo.
+Shown only in Notes mode; remove the note-only class once you have the photo and a real name.">
+    <div class="wrap persona">
+      <div class="media r45"><img src="assets/img/photos/weighing-oil.jpg" alt="Photo: hands weighing fragrance oil into a glass beaker on a digital scale at the studio bench" loading="lazy"></div>
+      <div class="stack-lg"><blockquote>“Most people start with one scent for the living room. A year later they are refilling the same glass with something new.”</blockquote><p class="muted">Name — Blender, Solenne</p></div>
+    </div>
+  </section>
+
+  <!-- 6 details -->
+  <section id="details" class="sec" data-note="Details: three close-ups that show how the candle is made to burn well.
+Replace the demo photos in assets/img/photos with macro photos.">
+    <div class="wrap head"><h2 class="d2 split">Details you can smell.</h2><p class="lead" data-rv>Small choices make a clean burn. Every wick is sized to its vessel.</p></div>
+    <div class="wrap details stagger">
+      <div><div class="media zoom"><img src="assets/img/photos/trimming-wick.jpg" alt="Photo: macro of a braided cotton wick trimmed to 5 mm, above smooth unburnt wax" loading="lazy"></div><h3>The wick</h3><p>Braided cotton, chosen for each size so the flame stays low and steady.</p></div>
+      <div><div class="media zoom"><img src="assets/img/photos/melt-pool.jpg" alt="Photo: top-down view of a candle with a full, clear melt pool reaching the glass edge" loading="lazy"></div><h3>The pool</h3><p>The wax melts edge to edge, so the scent fills the room and nothing is left on the sides.</p></div>
+      <div><div class="media zoom"><img src="assets/img/photos/still-life-day.jpg" alt="Photo: close-up of the thick base and rim of a smoked-glass candle vessel in side light" loading="lazy"></div><h3>The vessel</h3><p>Heavy glass or ceramic from a specialist maker. It holds the heat, and it takes a refill.</p></div>
+    </div>
+  </section>
+
+  <!-- 7 gallery -->
+  <section id="gallery" class="sec tight" data-note="Gallery: six picked images, then a link to the full gallery.
+The first image is shown large; use your best wide shot there.
+Replace the demo photos in assets/img/photos with your photos.">
+    <div class="wrap head"><h2 class="d2 split">In real rooms.</h2><a class="link" href="gallery.html" data-rv>Full gallery <span class="arr">→</span></a></div>
+    <div class="wrap gal6">
+      <a href="gallery.html" data-rv="wipe"><img src="assets/img/photos/hotel-lounge.jpg" alt="Photo: a hotel lounge at evening, a 400 g candle lit on a low marble table between two armchairs" loading="lazy"></a>
+      <a href="gallery.html" data-rv="wipe"><img src="assets/img/photos/hotel-nightstand.jpg" alt="Photo: a 120 g candle with its oak lid on a hotel nightstand beside a reading lamp" loading="lazy"></a>
+      <a href="gallery.html" data-rv="wipe"><img src="assets/img/photos/restaurant.jpg" alt="Photo: a row of lit candles along a long wedding dinner table, linen napkins and low light" loading="lazy"></a>
+      <a href="gallery.html" data-rv="wipe"><img src="assets/img/photos/spa-room.jpg" alt="Photo: a lit candle on the edge of a stone bath in a spa room, steam in the air" loading="lazy"></a>
+      <a href="gallery.html" data-rv="wipe"><img src="assets/img/photos/tester-table.jpg" alt="Photo: candles stacked by scent on the counter of a small concept store" loading="lazy"></a>
+      <a href="gallery.html" data-rv="wipe"><img src="assets/img/photos/restaurant.jpg" alt="Photo: a ceramic candle on a restaurant table beside a carafe of water and bread" loading="lazy"></a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="wrap"><div class="cta" data-rv><h2 class="d3">Ordering for a shop or hotel? Send us your list.</h2><a class="btn" href="quote.html?from=candles">Get a quote <span class="arr">→</span></a></div></div>
+
+  <!-- 8 making -->
+  <section class="sec" data-note="Making: one paragraph on how the product is made, linking to the Manufacturing page.
+Replace the demo photo with a real studio photo.">
+    <div class="wrap grid2">
+      <div class="media r43" data-rv="wipe"><img src="assets/img/photos/pouring.jpg" alt="Photo: melted wax being poured from a pouring jug into a row of empty glass vessels on a studio bench, wicks held straight by clips" loading="lazy"></div>
+      <div class="stack-lg">
+        <h2 class="d2 split">Poured by hand.</h2>
+        <p class="lead" data-rv>We blend every scent and pour every candle in our studio, then let it cure for two weeks. Glass and ceramic come from makers who do nothing else.</p>
+        <a class="link" href="manufacturing.html" data-rv>How we make it <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 burning -->
+  <section id="burn" class="sec alt" data-note="Burning: four habits for a clean burn, then four steps to refill.
+Questions about soot, tunnelling and refills are the most common, so keep this section clear.
+Replace the demo photos with one photo per habit.">
+    <div class="wrap head"><h2 class="d2 split">Burn well, then refill.</h2><p class="lead" data-rv>Four habits for a clean flame and an even pool — and when the wax runs low, a refill takes a minute.</p></div>
+    <div class="wrap modes stagger">
+      <div class="mode"><div class="media"><img src="assets/img/photos/melt-pool.jpg" alt="Photo: a candle on its first burn with the melt pool just reaching the edge of the glass" loading="lazy"></div><h3>First burn</h3><p>Let the pool reach the edge, about two to three hours. It sets the pattern for every burn after.</p></div>
+      <div class="mode"><div class="media"><img src="assets/img/photos/trimming-wick.jpg" alt="Photo: hands trimming a cotton wick with a wick trimmer before lighting" loading="lazy"></div><h3>Trim the wick</h3><p>Cut it to 5 mm before each light, for a calm flame and no soot.</p></div>
+      <div class="mode"><div class="media"><img src="assets/img/photos/tester-table.jpg" alt="Photo: a lit candle on a flat stone surface in a still corner of a room, away from an open window" loading="lazy"></div><h3>Keep it still</h3><p>A flat surface, away from drafts and open windows. The flame stays straight.</p></div>
+      <div class="mode"><div class="media"><img src="assets/img/photos/melt-pool.jpg" alt="Photo: a snuffer lowered over a candle flame, a thin line of smoke rising" loading="lazy"></div><h3>Snuff it out</h3><p>Use a snuffer, never water. Burn up to four hours at a time.</p></div>
+    </div>
+    <div class="wrap">
+      <div class="steps stagger">
+        <div><b>01</b>Burn until about 5 mm of wax is left.</div>
+        <div><b>02</b>Let it cool, then lift out the old wax.</div>
+        <div><b>03</b>Drop in a refill of the same size.</div>
+        <div><b>04</b>Trim the new wick and light. Done.</div>
+      </div>
+      <p class="muted small" style="margin-top:30px" data-rv>Every candle comes with a burning card. Not sure? Message us and we will help.</p>
+    </div>
+  </section>
+
+  <!-- 10 vessels -->
+  <section id="vessels" class="sec" data-note="Vessels and finishes: one swatch per vessel or lid (CSS colours in the inline styles).
+Set the swatch colours to match your real vessels.">
+    <div class="wrap head"><h2 class="d2 split">Vessels and finishes.</h2><p class="lead" data-rv>Glass and ceramic from specialist makers, with an oak lid. Chosen to sit quietly in any room.</p></div>
+    <div class="wrap swatches stagger">
+      <div class="sw"><i style="background:linear-gradient(160deg,#f4f6f5,#dfe5e3 60%,#cdd6d3)"></i><b>Clear glass</b><span>Vessel · 120 / 220 / 400 g</span></div>
+      <div class="sw"><i style="background:linear-gradient(160deg,#6a625c,#3f3a36)"></i><b>Smoked glass</b><span>Vessel · 220 / 400 g</span></div>
+      <div class="sw"><i style="background:#efece6"></i><b>White ceramic</b><span>Vessel · matte glaze</span></div>
+      <div class="sw"><i style="background:linear-gradient(135deg,#e4c39d,#c99a68)"></i><b>Oak</b><span>Lid · doubles as a coaster</span></div>
+    </div>
+  </section>
+
+  <!-- 11 refill instead of replace -->
+  <section class="sec alt" data-note="Refill, not replace: three promises (keep the vessel, change the scent, buy single spares), each with one image.">
+    <div class="wrap head"><h2 class="d2 split">Refill, not replace.</h2></div>
+    <div class="wrap grow stagger">
+      <div><div class="media"><img src="assets/img/photos/refill.jpg" alt="Photo: an empty, cleaned glass vessel next to a boxed refill on a kitchen counter" loading="lazy"></div><h3>Keep the vessel</h3><p>Refills come in every size. The same glass can stay on your table for years.</p></div>
+      <div><div class="media"><img src="assets/img/photos/refill.jpg" alt="Photo: two refills in different scents side by side, one woody and one fresh, with their labels showing" loading="lazy"></div><h3>Change the scent</h3><p>Same vessel, new scent. Swap with the season, or the room.</p></div>
+      <div><div class="media"><img src="assets/img/photos/trimming-wick.jpg" alt="Photo: a single oak lid, a wick trimmer and a snuffer laid out on grey linen" loading="lazy"></div><h3>Spares on their own</h3><p>Lids, trimmers and snuffers are listed with codes and prices. Lose one, replace one.</p></div>
+    </div>
+  </section>
+
+  <!-- 12 pricing -->
+  <section id="pricing" class="sec" data-note="Pricing: cost per hour of burn, as a small slider calculator.
+No fixed prices here; the script at the bottom of this page does the maths.">
+    <div class="wrap calc">
+      <div class="stack-lg">
+        <h2 class="d2 split">Priced by the hour.</h2>
+        <p class="lead" data-rv>A slow burn costs less each evening, and a refill costs less than a new candle. Try it with your own numbers.</p>
+        <a class="link" href="scents.html" data-rv>See scent prices <span class="arr">→</span></a>
+      </div>
+      <div class="box" data-rv>
+        <div><div class="row"><span>Candle price</span><b id="pv">$48</b></div><input id="price" type="range" min="10" max="200" step="1" value="48" aria-label="Candle price"></div>
+        <div><div class="row"><span>Hours of burn</span><b id="yv">45</b></div><input id="years" type="range" min="20" max="100" step="5" value="45" aria-label="Hours of burn"></div>
+        <div><div class="out" id="per">$1.07</div><p class="muted small" style="margin-top:8px">per hour</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="cta" data-rv><h2 class="d3">Want a scent of your own? Ask about custom blends.</h2><a class="btn" href="quote.html?from=candles">Ask about a custom scent <span class="arr">→</span></a></div></div>
+
+  <!-- 13 how to choose -->
+  <section id="choose" class="sec" data-note="How to choose: the three sizes, then a comparison with other kinds of candle.
+Compare against generic categories, not named brands.">
+    <div class="wrap head"><h2 class="d2 split">How to choose.</h2><p class="lead" data-rv>Three sizes, one wax. Small for bedrooms and bathrooms, large for living rooms and lobbies.</p></div>
+    <div class="wrap">
+      <div class="sizes stagger">
+        <div class="card"><div class="cut"><img src="assets/img/photos/candle-sizes.jpg" alt="Photo: a 120 g candle in clear glass, cut out on a white background" loading="lazy"></div><div class="meta"><h3>120 g</h3><span>About 25 hours · bedside, travel</span></div></div>
+        <div class="card"><div class="cut"><img src="assets/img/photos/candle-sizes.jpg" alt="Photo: a 220 g candle in smoked glass, cut out on a white background" loading="lazy"></div><div class="meta"><h3>220 g</h3><span>About 45 hours · living rooms</span></div></div>
+        <div class="card"><div class="cut"><img src="assets/img/photos/candle-sizes.jpg" alt="Photo: a 400 g candle in white ceramic with its oak lid, cut out on a white background" loading="lazy"></div><div class="meta"><h3>400 g</h3><span>About 80 hours · large rooms, lobbies</span></div></div>
+      </div>
+      <table class="cmp" data-rv>
+        <thead><tr><th></th><th>Solenne candle</th><th>Typical paraffin candle</th><th>Single-use jar candle</th></tr></thead>
+        <tbody>
+          <tr><td>Wax</td><td>Coconut & rapeseed</td><td>Paraffin</td><td>Varies</td></tr>
+          <tr><td>Wick</td><td>Braided cotton, sized per vessel</td><td>Varies</td><td>Varies</td></tr>
+          <tr><td>Refills</td><td>Every size</td><td>Rarely</td><td>No</td></tr>
+          <tr><td>Vessel after use</td><td>Refill or reuse</td><td>Thrown away</td><td>Thrown away</td></tr>
+          <tr><td>Hotel and custom labels</td><td>Yes</td><td>Rarely</td><td>Rarely</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 14 enquiry process -->
+  <section id="process" class="sec alt" data-note="Process: what happens after a trade, hotel or custom-scent enquiry, in three steps.
+Sets expectations (what to send, how fast you reply).">
+    <div class="wrap process">
+      <div class="media r43" data-rv="wipe"><img src="assets/img/photos/scent-samples.jpg" alt="Photo: sample vials and paper scent strips laid out on a linen cloth beside a notebook" loading="lazy"></div>
+      <div class="stack-lg">
+        <h2 class="d2 split">From brief to scent in three steps.</h2>
+        <ol class="stagger">
+          <li><div><h3>Tell us</h3><p>The space, how many rooms or shops, and the mood you are after.</p></div></li>
+          <li><div><h3>Try</h3><p>We send a few blends to smell in the space itself.</p></div></li>
+          <li><div><h3>Plan & quote</h3><p>Sizes, quantities and a fixed price within 2 working days.</p></div></li>
+        </ol>
+        <a class="btn" href="quote.html?from=candles" data-rv>Start an enquiry <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 delivery -->
+  <section class="sec tight" data-note="Delivery: how orders are made and shipped.
+Add your real lead time and shipping area.">
+    <div class="wrap">
+      <h2 class="d3" data-rv style="margin-bottom:30px">Poured to order. Packed by hand.</h2>
+      <div class="deliver stagger">
+        <div><b>Cured</b><span class="muted">Trade and custom orders are poured for you and cure for two weeks. Lead time is confirmed with your quote.</span></div>
+        <div><b>Packed by hand</b><span class="muted">Every candle is labelled and packed by hand, in card that can be recycled.</span></div>
+        <div><b>Worldwide</b><span class="muted">Shipped from our studio, door to door, with tracking.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 FAQ -->
+  <section id="faq" class="sec" data-note="FAQ: five to eight questions about this product only, then a link to the full FAQ page.">
+    <div class="wrap faqgrid">
+      <div class="stack-lg"><h2 class="d2 split">Questions.</h2><a class="link" href="faqs.html" data-rv>All FAQs <span class="arr">→</span></a></div>
+      <div class="acc" data-rv>
+        <details><summary>How long does a candle burn?<i></i></summary><div class="ans">About 25 hours for 120 g, 45 hours for 220 g and 80 hours for 400 g, if you trim the wick and burn up to four hours at a time. See <a href="#burn">burning</a>.</div></details>
+        <details><summary>Why trim the wick?<i></i></summary><div class="ans">A wick trimmed to 5 mm gives a calm flame and stops soot. A long wick burns too hot and too fast.</div></details>
+        <details><summary>What is the wax made of?<i></i></summary><div class="ans">A blend of coconut and rapeseed wax, with a braided cotton wick.</div></details>
+        <details><summary>How do refills work?<i></i></summary><div class="ans">Burn down to about 5 mm, lift out the old wax and drop in a refill of the same size. Every size has one — see <a href="scents.html#refills">refills</a>.</div></details>
+        <details><summary>Can you make a scent or label for our hotel or shop?<i></i></summary><div class="ans">Yes. Send us a short brief and we will start with a few sample blends. See <a href="#process">process</a>.</div></details>
+        <details><summary>How long does delivery take?<i></i></summary><div class="ans">Stock scents ship from our studio with tracking. Trade and custom orders cure for two weeks; your quote states the lead time and shipping cost to your door.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" style="padding-bottom:clamp(60px,8vw,120px)"><div class="cta" data-rv><h2 class="d2">Ready when you are.</h2><a class="btn" href="quote.html?from=candles">Get a quote <span class="arr">→</span></a></div></div>
+</main>
+<script>
+(() => {
+  const p = document.getElementById('price'), h = document.getElementById('years');
+  const fmt = n => '$' + n.toLocaleString('en-US');
+  const up = () => {
+    document.getElementById('pv').textContent = fmt(+p.value);
+    document.getElementById('yv').textContent = h.value;
+    document.getElementById('per').textContent = '$' + (p.value / h.value).toFixed(2);
+  };
+  p.oninput = h.oninput = up; up();
+})();
+</script>
+</body>
+</html>

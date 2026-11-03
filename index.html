@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Solenne | Hand-poured Candles and Reed Diffusers</title>
+<meta name="description" content="Scented candles and reed diffusers, blended and hand-poured by Solenne in vessels made to be refilled.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/config.js"></script><script defer src="assets/site.js"></script>
+<style>
+.hero { position: relative; margin-top: var(--hdr); height: calc(100svh - var(--hdr)); min-height: 520px; background: #111; color: #fff; overflow: hidden; touch-action: pan-y; user-select: none; }
+.track { display: flex; height: 100%; will-change: transform; transition: transform .9s cubic-bezier(.65, 0, .35, 1); }
+.track.dragging { transition: none; cursor: grabbing; }
+.slide { flex: 0 0 100%; position: relative; height: 100%; }
+.slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+.slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(20deg, rgb(0 0 0 / .55) 0%, rgb(0 0 0 / .14) 45%, rgb(0 0 0 / 0) 70%); }
+.slide .txt { position: absolute; left: var(--pad); right: var(--pad); bottom: clamp(90px, 13vh, 150px); z-index: 2; max-width: 980px; }
+.slide .d1 { max-width: 12ch; }
+.slide p { margin: 22px 0 30px; font-size: clamp(16px, 1.4vw, 19px); opacity: .88; max-width: 40ch; }
+.ctrl { position: absolute; right: calc(var(--pad) + 70px); bottom: 34px; z-index: 3; display: flex; align-items: center; gap: 14px; filter: drop-shadow(0 1px 3px rgb(0 0 0 / .45)); }
+.ctrl button { background: none; border: 0; color: #fff; padding: 6px; opacity: .85; transition: opacity .2s; }
+.ctrl button:hover { opacity: 1; }
+.ctrl .dots { display: flex; gap: 8px; }
+.ctrl .dots button { width: 34px; height: 2px; padding: 0; background: rgb(255 255 255 / .32); position: relative; overflow: hidden; }
+.ctrl .dots button::after { content: ""; position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: left; }
+.ctrl .dots button.on::after { animation: fill var(--dur, 6s) linear forwards; }
+.hero.hold .ctrl .dots button.on::after { animation-play-state: paused; }
+@keyframes fill { to { transform: scaleX(1); } }
+.ctrl svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 1.6; display: block; }
+
+.intro .d2 { max-width: 17ch; }
+.intro .row { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-top: 44px; flex-wrap: wrap; }
+
+.sys .media { aspect-ratio: 1.05; }
+.specs { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); margin-top: 8px; }
+.specs div { padding: 18px 0 0; }
+.specs b { display: block; font: 500 clamp(26px, 2.6vw, 38px)/1 var(--fd); letter-spacing: -.03em; }
+.specs span { font-size: 13px; color: var(--ink2); }
+
+.bleed { position: relative; height: 100svh; max-height: 980px; min-height: 560px; overflow: hidden; color: #fff; display: grid; align-items: end; }
+.bleed img { position: absolute; inset: -10% 0; width: 100%; height: 120%; object-fit: cover; }
+.bleed::before { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgb(0 0 0 / .66), rgb(0 0 0 / 0) 60%); z-index: 1; }
+.bleed .wrap { position: relative; z-index: 2; padding-bottom: clamp(56px, 9vw, 120px); }
+.bleed p { margin-top: 22px; max-width: 42ch; opacity: .85; font-size: clamp(16px, 1.4vw, 19px); }
+
+.mat-in { max-width: 1180px; margin: 0 auto; padding: 0 var(--pad); }
+.mrow { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+.mrow .media { aspect-ratio: 1 / 1.02; }
+.mrow.rev .media { order: 2; }
+.mtxt { padding: 0 clamp(20px, 6vw, 90px); display: grid; gap: 18px; }
+.mtxt p { color: var(--ink2); max-width: 40ch; line-height: 1.75; }
+.mrow .swatch { display: grid; grid-template-columns: repeat(3, 1fr); align-items: end; gap: 4%; padding: 12% 8%; background: var(--bg2); }
+.mrow .swatch .chip { display: grid; gap: 12px; }
+.mrow .swatch i { display: block; aspect-ratio: .8; position: relative; border-radius: 4px; box-shadow: 0 18px 40px rgb(0 0 0 / .1); }
+.mrow .swatch i::before { content: ""; position: absolute; left: 50%; top: -9%; width: 2px; height: 9%; margin-left: -1px; background: #2b2a28; }
+.mrow .swatch span { font-size: 13px; color: var(--ink2); }
+.mrow .swatch { align-items: center; padding: 14% 12%; gap: 10%; }
+@media (max-width: 760px) { .mrow { grid-template-columns: 1fr; } .mrow.rev .media { order: 0; } .mtxt { padding: 28px 0 48px; } }
+
+.rail { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(270px, 30vw, 460px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--pad) 8px; scroll-padding-inline: var(--pad); scrollbar-width: none; cursor: grab; }
+.rail::-webkit-scrollbar { display: none; }
+.rail.drag { cursor: grabbing; scroll-snap-type: none; }
+.rail > * { scroll-snap-align: start; }
+.scene .media { aspect-ratio: 4 / 5; }
+.scene h3 { font-size: 20px; margin-top: 16px; letter-spacing: -.02em; }
+.scene p { color: var(--ink2); font-size: 14.5px; margin-top: 4px; }
+.rail-nav { display: flex; gap: 8px; }
+.rail-nav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: none; font-size: 18px; transition: all .3s; }
+.rail-nav button:hover { background: var(--ink); color: var(--bg); }
+
+.brand .d1 { max-width: 13ch; }
+.brand .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 70px; align-items: end; }
+.brand .cols p { max-width: 52ch; color: color-mix(in srgb, var(--inv-ink) 72%, transparent); font-size: 17px; }
+
+.set .media { aspect-ratio: 1 / 1.05; }
+.set .media img { transition: transform .8s var(--ease); }
+.set:hover .media img { transform: scale(1.04); }
+.set .id { font-size: 12px; letter-spacing: .06em; color: var(--ink3); }
+.sets { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+@media (max-width: 1080px) { .sets { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .sets { grid-template-columns: 1fr 1fr; } }
+
+.ethos-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+.ethos-row article { padding: 40px 40px 10px 0; display: grid; gap: 14px; }
+.ethos-row article + article { border-left: 1px solid var(--line); padding-left: 40px; }
+.ethos-row .num { font-size: 13px; color: var(--ink3); }
+
+.proj { position: relative; display: block; overflow: hidden; color: #fff; }
+.proj .media { aspect-ratio: 21 / 10; }
+.proj::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgb(0 0 0 / .6), rgb(0 0 0 / 0) 55%); }
+.proj .cap { position: absolute; left: var(--pad); right: var(--pad); bottom: clamp(24px, 4vw, 56px); z-index: 2; display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+
+.contact2 { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.contact2 > div { padding: clamp(36px, 5vw, 70px) clamp(0px, 3vw, 50px) 0 0; display: grid; gap: 18px; align-content: start; }
+.contact2 > div + div { border-left: 1px solid var(--line); padding-left: clamp(20px, 3vw, 50px); }
+@media (max-width: 760px) {
+  .brand .cols, .ethos-row, .contact2 { grid-template-columns: 1fr; }
+  .ethos-row article + article, .contact2 > div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .proj .media { aspect-ratio: 4 / 5; }
+  .ctrl { left: var(--pad); right: auto; }
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Solenne", "legalName": "Solenne Studio Ltd", "url": "https://www.example.com", "email": "hello@example.com", "telephone": "+1 555 0100", "address": {"@type": "PostalAddress", "streetAddress": "Example Street 1", "addressLocality": "Example City"}}</script>
+</head>
+<body data-page="home">
+
+<main>
+  <!-- 1 hero carousel: data-carousel = milliseconds per slide -->
+  <section class="hero" data-carousel="6000" data-note="Hero carousel: 3 slides, interval set by data-carousel (ms).
+Each slide: one image, one short line, one link. Only the first slide uses the H1.
+Replace the demo photos in assets/img/photos with wide photos dark enough for white text.">
+    <div class="track">
+    <div class="slide">
+      <img src="assets/img/photos/still-life-dusk.jpg" alt="Photo: a lit 220 g candle in a smoked-glass vessel on a dark oak side table at dusk, the flame the only light in the room">
+      <div class="txt"><h1 class="d1">Scent, poured by hand.</h1><p>Candles and reed diffusers blended in our studio, in vessels made to be refilled.</p><a class="btn light" href="candles.html">Explore candles <span class="arr">→</span></a></div>
+    </div>
+    <div class="slide">
+      <img src="assets/img/photos/hotel-lobby-night.jpg" alt="Photo: a dim hotel lobby at night, a 1 L reed diffuser on a stone console with warm lamps glowing behind">
+      <div class="txt"><h2 class="d1">One scent. A whole hotel.</h2><p>The same blends fill homes, shops, spas and hotel lobbies.</p><a class="btn light" href="projects.html">View projects <span class="arr">→</span></a></div>
+    </div>
+    <div class="slide">
+      <img src="assets/img/photos/bathroom-sill.jpg" alt="Photo: a 200 ml reed diffuser in clear glass on a bathroom windowsill, grey morning light through frosted glass">
+      <div class="txt"><h2 class="d1">Slow scent, for weeks.</h2><p>Reed diffusers that scent a room for up to 24 weeks, with no flame.</p><a class="btn light" href="diffusers.html">Discover diffusers <span class="arr">→</span></a></div>
+    </div>
+    </div>
+    <div class="ctrl">
+      <button data-prev aria-label="Previous"><svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg></button>
+      <div class="dots"></div>
+      <button data-next aria-label="Next"><svg viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg></button>
+    </div>
+  </section>
+
+  <!-- intro -->
+  <section class="sec intro" data-note="Intro: one sentence on what the brand makes, then a link down to the product range.">
+    <div class="wrap">
+      <h2 class="d2 split">Scent you keep, in vessels you refill.</h2>
+      <div class="row">
+        <p class="lead" data-rv>Candles and reed diffusers, blended and hand-poured in our studio. Glass and ceramic come from specialist makers, and every vessel takes a refill.</p>
+        <a class="link" href="#products" data-rv>Explore the range <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- products: candles, diffusers, objects, scent library -->
+  <section id="products" class="tiles" data-note="Product entry points: candles, diffusers, objects and the scent library.
+Same four links as the Products menu in the header (SHOP in assets/site.js).
+Replace the demo photos in assets/img/photos with one strong photo per line.">
+    <a class="tile" data-rv="wipe" href="candles.html"><img src="assets/img/photos/candle-sizes.jpg" alt="Photo: three candles in 120 g, 220 g and 400 g vessels lit side by side on a dark stone ledge"><div class="lbl"><b>Candles</b></div></a>
+    <a class="tile" data-rv="wipe" href="diffusers.html"><img src="assets/img/photos/hotel-lobby-night.jpg" alt="Photo: a 500 ml reed diffuser in smoked glass on a walnut console, low evening light"><div class="lbl"><b>Diffusers</b></div></a>
+    <a class="tile" data-rv="wipe" href="objects.html"><img src="assets/img/photos/still-life-dusk.jpg" alt="Photo: a brass candle holder, a wick trimmer and a box of matches on a dark linen cloth"><div class="lbl"><b>Objects</b></div></a>
+    <a class="tile" data-rv="wipe" href="scents.html"><img src="assets/img/photos/scent-samples.jpg" alt="Photo: twelve small amber sample bottles in a row on a studio bench, labels facing forward"><div class="lbl"><b>Scent library</b></div></a>
+  </section>
+
+  <!-- 2 product line -->
+  <section class="sec sys" data-note="Product line: one paragraph on the main line, three key numbers and two links.
+Replace the demo photo with a photo of your product.">
+    <div class="wrap grid2">
+      <div class="media" data-rv="wipe"><img src="assets/img/photos/still-life-day.jpg" alt="Photo: a 220 g candle in clear glass with its oak lid leaning beside it, on a pale plaster table in daylight" loading="lazy"></div>
+      <div class="stack-lg">
+        <h2 class="d2 split">Candles</h2>
+        <p class="lead" data-rv>Coconut-and-rapeseed wax, a cotton wick and one of twelve scents. Poured by hand into a vessel you can refill.</p>
+        <div class="specs stagger">
+          <div><b>3</b><span>Sizes</span></div>
+          <div><b>12</b><span>Scents</span></div>
+          <div><b>80 h</b><span>Longest burn</span></div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap" data-rv><a class="btn" href="candles.html">Discover candles <span class="arr">→</span></a><a class="btn ghost" href="scents.html">Scent library</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bleed" data-note="Full-bleed statement: one short line on a dark, full-width image.
+Use a dark photo so the white text reads well.">
+    <img src="assets/img/photos/still-life-dusk.jpg" alt="Photo: extreme close-up of a candle flame over a clear pool of melted wax, black background" data-par="80">
+    <div class="wrap">
+      <h2 class="d1 split">Made slowly.</h2>
+      <p data-rv>Every candle cures for two weeks before it leaves the studio. Every wick is trimmed and test-burned by hand.</p>
+    </div>
+  </section>
+
+  <!-- materials: alternating image / text rows -->
+  <section class="sec" data-note="Materials: alternating image and text rows, one per ingredient or vessel.
+The vessel row uses CSS swatches (inline styles); the others are demo photos.
+Replace the demo photos in assets/img/photos with close-ups of your materials.">
+    <div class="wrap head" style="max-width:1180px"><h2 class="d2 split">Four ingredients.</h2><p class="lead" data-rv>Few materials, each chosen for a clean, even burn.</p></div>
+    <div class="mat-in">
+      <div class="mrow"><div class="media" data-rv="wipe"><img src="assets/img/photos/wax-flakes.jpg" alt="Photo: creamy wax flakes in a ceramic bowl on a pale wooden bench, soft side light" loading="lazy"></div><div class="mtxt" data-rv><h3 class="d3">Wax</h3><p>A blend of coconut and rapeseed wax. Soft and slow-burning, it holds scent well and melts to an even pool.</p></div></div>
+      <div class="mrow rev"><div class="media" data-rv="wipe"><img src="assets/img/photos/weighing-oil.jpg" alt="Photo: a glass dropper over a small beaker of fragrance oil, scent strips fanned out beside it" loading="lazy"></div><div class="mtxt" data-rv><h3 class="d3">Fragrance oils</h3><p>Each scent is blended in our studio from fragrance and essential oils, then left to settle before it meets the wax.</p></div></div>
+      <div class="mrow"><div class="media" data-rv="wipe"><img src="assets/img/photos/cotton-wicks.jpg" alt="Photo: braided cotton wicks of three lengths laid in a row on unbleached linen" loading="lazy"></div><div class="mtxt" data-rv><h3 class="d3">Cotton wick</h3><p>A braided cotton wick, sized for each vessel so the flame stays steady and the pool reaches the edge.</p></div></div>
+      <div class="mrow rev"><div class="media swatch" data-rv="wipe" role="img" aria-label="Clear glass, smoked glass and white ceramic vessel samples, each with a wick"><div class="chip"><i style="background:linear-gradient(160deg,#f4f6f5,#dfe5e3 60%,#cdd6d3)"></i><span>Clear glass</span></div><div class="chip"><i style="background:linear-gradient(160deg,#6a625c,#3f3a36)"></i><span>Smoked glass</span></div><div class="chip"><i style="background:#efece6"></i><span>Ceramic</span></div></div><div class="mtxt" data-rv><h3 class="d3">Vessels</h3><p>Clear glass, smoked glass or matte ceramic, from specialist makers. Every one is made to take a refill.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 3 scenes carousel -->
+  <section class="sec" data-note="Scenes: one card per space type, each with one line and a link to a matching project.
+Drag, swipe or use the arrows. Project pages come from assets/projects.js.
+Replace the demo photos in assets/img/photos with your photos.">
+        <div class="wrap head">
+      <h2 class="d2 split">Every room has a scent.</h2>
+      <div class="rail-nav" data-rv><button data-rail="-1" aria-label="Previous">←</button><button data-rail="1" aria-label="Next">→</button></div>
+    </div>
+    <div class="rail" id="scenes">
+      <a class="scene" href="project.html?id=P-01"><div class="media zoom"><img src="assets/img/photos/hotel-lounge.jpg" alt="Photo: a hotel lobby lounge with a 1 L diffuser on a stone console beside armchairs, afternoon light" loading="lazy"></div><h3>Lobby</h3><p>A scent guests remember.</p></a>
+      <a class="scene" href="project.html?id=P-02"><div class="media zoom"><img src="assets/img/photos/hotel-nightstand.jpg" alt="Photo: a 120 g candle with its lid and a box of matches on a hotel nightstand, bedside lamp on" loading="lazy"></div><h3>Guest room</h3><p>A small candle on every nightstand.</p></a>
+      <a class="scene" href="project.html?id=P-03"><div class="media zoom"><img src="assets/img/photos/fashion-store.jpg" alt="Photo: a 500 ml reed diffuser on a fashion store display table among folded knitwear" loading="lazy"></div><h3>Store</h3><p>A new scent with every collection.</p></a>
+      <a class="scene" href="project.html?id=P-05"><div class="media zoom"><img src="assets/img/photos/diffuser-product.jpg" alt="Photo: a spa treatment room with rolled towels and a ceramic diffuser on a wooden stool, dim warm light" loading="lazy"></div><h3>Spa</h3><p>Three rooms, three moods.</p></a>
+      <a class="scene" href="project.html?id=P-06"><div class="media zoom"><img src="assets/img/photos/restaurant.jpg" alt="Photo: low candles in ceramic holders along a restaurant table set for dinner, evening light" loading="lazy"></div><h3>Restaurant</h3><p>Candlelight that leaves the food alone.</p></a>
+      <a class="scene" href="project.html?id=P-07"><div class="media zoom"><img src="assets/img/photos/cafe-books.jpg" alt="Photo: a café counter by a wall of books, a clear-glass diffuser beside the coffee cups" loading="lazy"></div><h3>Café</h3><p>Coffee first, then paper and wood.</p></a>
+      <a class="scene" href="project.html?id=P-09"><div class="media zoom"><img src="assets/img/photos/gallery-opening.jpg" alt="Photo: a white gallery hall at an evening opening, candles in a row on a long plinth" loading="lazy"></div><h3>Gallery</h3><p>One evening, one scent.</p></a>
+      <a class="scene" href="project.html?id=P-11"><div class="media zoom"><img src="assets/img/photos/living-room.jpg" alt="Photo: a city apartment living room with a lit 400 g candle on a low coffee table and a sofa behind" loading="lazy"></div><h3>Home</h3><p>A different scent for every room.</p></a>
+    </div>
+  </section>
+
+  <!-- 4 brand -->
+  <section class="sec inv brand" data-note="Brand: a short statement and one paragraph (who, what, why) linking to About.
+Keep it under 100 words.">
+    <div class="wrap">
+      <h2 class="d1 split">Fewer scents. Blended better. Made to refill.</h2>
+      <div class="cols">
+        <p data-rv>Solenne is a small studio for home fragrance. We blend every scent and pour every candle by hand, with glass and ceramic from specialist makers. Our aim is simple: a scent you come back to, in a vessel you keep.</p>
+        <div data-rv><a class="btn light" href="about.html">About Solenne <span class="arr">→</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 scent sets -->
+  <section class="sec" data-note="Scent sets: ready-made combinations, each linking to a project that uses it.
+The line under each name lists sample product codes from the scent library (assets/parts.js).
+Replace the demo photos in assets/img/photos with photos of each set.
+No prices on the home page.">
+    <div class="wrap head">
+      <h2 class="d2 split">Start from a scent set.</h2>
+      <p class="lead" data-rv>Five sets we put together again and again — see each one in a real space.</p>
+    </div>
+    <div class="wrap sets">
+      <a class="card set" href="project.html?id=P-11"><div class="media"><img src="assets/img/photos/living-room.jpg" alt="Photo: a 200 ml Sea Fennel diffuser and a 220 g Cedar Room candle on a hallway console by the front door" loading="lazy"></div><div class="meta"><h3>Hall set</h3><span class="id">D-S08 · C-S01</span></div><p class="muted small">Diffuser 200 ml · candle 220 g</p></a>
+      <a class="card set" href="project.html?id=P-02"><div class="media"><img src="assets/img/photos/hotel-nightstand.jpg" alt="Photo: a 120 g Linen Line candle and a 100 ml diffuser on a bedside table beside folded white sheets" loading="lazy"></div><div class="meta"><h3>Bedroom set</h3><span class="id">C-S07 · D-S04</span></div><p class="muted small">Candle 120 g · diffuser 100 ml</p></a>
+      <a class="card set" href="project.html?id=P-01"><div class="media"><img src="assets/img/photos/refill.jpg" alt="Photo: a 1 L diffuser, a 400 g candle and a refill bottle grouped on a hotel reception counter" loading="lazy"></div><div class="meta"><h3>Hotel set</h3><span class="id">D-S01 · C-S01 · R-D1000</span></div><p class="muted small">Diffuser 1 L · candle 400 g · refill</p></a>
+      <a class="card set" href="project.html?id=P-10"><div class="media"><img src="assets/img/photos/gift-box.jpg" alt="Photo: an open gift box with a 220 g candle, a wick trimmer and matches nested in tissue paper" loading="lazy"></div><div class="meta"><h3>Gift set</h3><span class="id">C-S11 · A-WT</span></div><p class="muted small">Candle 220 g · trimmer · matches</p></a>
+      <a class="card set" href="project.html?id=P-12"><div class="media"><img src="assets/img/photos/tester-table.jpg" alt="Photo: four 120 g candles, one from each scent family, in a row on a showroom table" loading="lazy"></div><div class="meta"><h3>Discovery set</h3><span class="id">C-S02 · C-S04 · C-S09 · C-S10</span></div><p class="muted small">4 candles 120 g · one per family</p></a>
+    </div>
+  </section>
+
+  <!-- 6 ethos -->
+  <section class="sec tight" data-note="Ethos: two beliefs, each with a short argument and a link to its section on the Ethos page.">
+    <div class="wrap">
+      <div class="ethos-row stagger">
+        <article><span class="num">01</span><h3 class="d3">Refill, don't replace.</h3><p class="muted">Every vessel takes a refill in its own size. Keep the glass, change the scent with the season.</p><a class="link" href="ethos.html#refill">Our ethos <span class="arr">→</span></a></article>
+        <article><span class="num">02</span><h3 class="d3">Blended here, poured by hand.</h3><p class="muted">We blend every scent in our studio. Glass and ceramic come from makers who do nothing else.</p><a class="link" href="ethos.html#made">Our ethos <span class="arr">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- project teaser -->
+  <section data-note="Featured project: one full-width project as proof of a larger job.
+Links to project.html?id=P-01; project data comes from assets/projects.js.
+Use a dark photo so the white caption reads well.">
+    <a class="proj" href="project.html?id=P-01">
+      <div class="media"><img src="assets/img/photos/hotel-lobby-night.jpg" alt="Photo: wide view of a hotel lobby and lounge in the evening, reed diffusers on stone consoles, warm lamplight on dark wood" data-par="50"></div>
+      <div class="cap"><div><p class="small" style="opacity:.8;margin-bottom:10px">Project</p><h2 class="d2">Hotel lobby, signature scent</h2></div><span class="btn line-light">View project <span class="arr">→</span></span></div>
+    </a>
+  </section>
+
+  <!-- catalogue + contact -->
+  <section class="sec" data-note="Last step: catalogue PDF download and direct contact links.
+The WhatsApp button and the email link take their details from assets/config.js; WhatsApp disappears if it is turned off there.">
+    <div class="wrap contact2">
+      <div data-rv><h2 class="d3">Get the catalogue</h2><p class="muted">Every scent, size and refill with codes, in one PDF.</p><div><a class="btn ghost" href="assets/catalogue/catalogue.pdf" download>Download catalogue <span class="arr">↓</span></a></div></div>
+      <div data-rv><h2 class="d3">Talk to us</h2><p class="muted">Questions about a scent, a shop order or a hotel project? Message us directly.</p><div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><a class="btn" data-wa href="#" target="_blank" rel="noopener">Contact on WhatsApp <span class="arr">→</span></a><a class="link" data-email href="mailto:hello@example.com">hello@example.com</a><a class="link" href="faqs.html">Common questions <span class="arr">→</span></a></div></div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

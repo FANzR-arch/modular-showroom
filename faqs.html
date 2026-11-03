@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FAQs | Solenne</title>
+<meta name="description" content="Answers about Solenne candles and reed diffusers: burn time, first burn, wick trimming, reeds, refills, scents, shipping, trade accounts and safety.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111214'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23dfe4e8' font-family='Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/config.js"></script><script defer src="assets/site.js"></script>
+<style>
+.fq { display: grid; grid-template-columns: 240px 1fr; gap: clamp(30px, 5vw, 90px); align-items: start; }
+.side { position: sticky; top: calc(var(--hdr) + 30px); display: grid; gap: 4px; }
+.side a { font-size: 15px; color: var(--ink2); padding: 4px 0; transition: color .2s; }
+.side a:hover, .side a.on { color: var(--ink); }
+.search { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--ink); margin-bottom: 40px; }
+.search input { flex: 1; border: 0; background: none; outline: none; padding: 14px 0; font-size: 18px; }
+.grp { margin-bottom: 56px; scroll-margin-top: calc(var(--hdr) + 30px); }
+.grp h2 { font-size: 13px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink3); margin-bottom: 8px; font-family: var(--f); }
+.empty { display: none; color: var(--ink2); }
+@media (max-width: 760px) { .fq { grid-template-columns: 1fr; } .side { position: static; grid-auto-flow: column; overflow-x: auto; gap: 18px; } .side a { white-space: nowrap; } }
+</style>
+</head>
+<body data-page="faqs">
+<main>
+  <section class="phero" data-note="FAQs: self-service answers, grouped by topic.
+Questions live in the G array in the script at the bottom of this page; the side menu, search and FAQPage JSON-LD are all built from it.
+Keep answers short and end with a link where it helps.">
+    <div class="wrap"><h1 class="d1 split">FAQs</h1></div>
+  </section>
+  <section class="sec" style="padding-top:0">
+    <div class="wrap fq">
+      <nav class="side" data-rv id="side"></nav>
+      <div>
+        <label class="search" data-rv><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="qs" placeholder="Search questions" aria-label="Search questions"></label>
+        <div id="groups"></div>
+        <p class="empty" id="empty">No matching questions. <a href="contact.html" style="border-bottom:1px solid">Ask us directly →</a></p>
+      </div>
+    </div>
+  </section>
+  <section class="sec tight" data-note="Fallback: sends visitors who did not find an answer to the contact page.">
+    <div class="wrap"><div class="cta"><h2 class="d3">Didn't find your answer?</h2><a class="btn" href="contact.html">Contact us <span class="arr">→</span></a></div></div>
+  </section>
+</main>
+<script>
+(() => {
+  const G = [
+    ['Candles', [
+      ['How long does a candle burn?', 'About 25 hours for the 120 g candle, 45 hours for 220 g and 80 hours for 400 g, burned in sittings of two to four hours. <a href="candles.html">See the candles</a>.'],
+      ['What should I do on the first burn?', 'Let it burn until the melted wax reaches the edge of the vessel, usually two to three hours. The first burn sets the pattern for every burn after it.'],
+      ['Why is my candle tunnelling?', 'Tunnelling, a hole down the middle with wax left on the walls, usually comes from short burns. Next time, let it burn until the melt pool reaches the edge.'],
+      ['Do I need to trim the wick?', 'Yes. Trim it to about 5 mm before each burn for a calm flame and less soot. The <a href="objects.html">wick trimmer</a> (A-WT) reaches into deep vessels.'],
+      ['What is the wax?', 'A coconut-and-rapeseed wax blend with a cotton wick, poured by hand in the studio. <a href="manufacturing.html">How it is made</a>.'],
+    ]],
+    ['Diffusers', [
+      ['How long does a reed diffuser last?', 'About 6 weeks for 100 ml, 10 weeks for 200 ml, 16 weeks for 500 ml and 24 weeks for 1 L. Warm, airy rooms use it up faster. <a href="diffusers.html">See the diffusers</a>.'],
+      ['How often should I flip the reeds?', 'Once a week. Flipping refreshes the scent; flipping more often makes it stronger, but the oil runs out sooner.'],
+      ['The scent has faded. What can I do?', 'Flip the reeds first. If they have turned dark and stopped drawing oil, replace them with fresh reeds (A-RD).'],
+    ]],
+    ['Refills', [
+      ['Can I refill my candle?', 'Yes. Every vessel is made to be refilled. Choose the refill for your size: R-C120, R-C220 or R-C400. <a href="scents.html">See refills</a>.'],
+      ['Are there diffuser refills?', 'Yes, from R-D100 to R-D1000. Pour the refill into your bottle and add fresh reeds if the old ones are tired.'],
+    ]],
+    ['Scents', [
+      ['How do I choose a scent?', 'Start with a family: Woody, Floral, Fresh or Amber. Each holds three scents, all available as candles and diffusers. <a href="scents.html">Scent library</a>.'],
+      ['Can you make a custom scent?', 'Yes, for hotels, stores and events. We blend a scent with you and make it as candles, diffusers or both. Minimums and timing are confirmed for each project. <a href="quote.html">Start an enquiry</a>.'],
+    ]],
+    ['Shipping', [
+      ['Do you ship internationally?', 'We ship to many countries, door to door with tracking. Please confirm delivery to your region with us. <a href="contact.html">Contact us</a>.'],
+      ['How much is shipping?', 'Shipping depends on weight and destination and is confirmed with your order before you pay.'],
+      ['How are orders packed?', 'Every order is boxed, padded and packed by hand in the studio, so candles and glass arrive whole.'],
+    ]],
+    ['Trade', [
+      ['Do you offer trade accounts?', 'Yes, for shops, hotels, spas and interior designers. Trade terms and minimums are confirmed when your account is opened. <a href="quote.html">Send a trade enquiry</a>.'],
+      ['Can you scent a hotel or store?', 'Yes. We match a scent and a format to each space, from a lobby to guest rooms. <a href="projects.html">See projects</a>.'],
+    ]],
+    ['Safety', [
+      ['How do I burn a candle safely?', 'Never leave a burning candle unattended. Place it on a heat-resistant surface, away from draughts, curtains, children and pets, and stop burning when about 1 cm of wax is left.'],
+      ['How should I put a candle out?', 'Use a snuffer (A-SN) instead of blowing: it avoids smoke and spattered wax. Let the wax set before moving the candle or putting on the lid (A-LD).'],
+      ['Where should a diffuser stand?', 'Out of reach of children and pets, on a surface the oil cannot mark. Wipe any spills straight away.'],
+    ]],
+  ];
+  const slug = s => s.toLowerCase().replace(/[^a-z]+/g, '-');
+  document.getElementById('side').innerHTML = G.map(([g]) => `<a href="#${slug(g)}">${g}</a>`).join('');
+  document.getElementById('groups').innerHTML = G.map(([g, qs]) => `<div class="grp" id="${slug(g)}" data-rv><h2>${g}</h2><div class="acc">${qs.map(([q, a]) => `<details><summary>${q}<i></i></summary><div class="ans">${a}</div></details>`).join('')}</div></div>`).join('');
+  const ld = document.createElement('script'); ld.type = 'application/ld+json';
+  ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: G.flatMap(([, qs]) => qs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } }))) });
+  document.head.append(ld);
+  document.getElementById('qs').addEventListener('input', e => {
+    const v = e.target.value.trim().toLowerCase(); let n = 0;
+    document.querySelectorAll('#groups .grp').forEach(grp => {
+      let any = 0;
+      grp.querySelectorAll('details').forEach(d => { const hit = !v || d.textContent.toLowerCase().includes(v); d.style.display = hit ? '' : 'none'; if (hit) any++; if (v && hit) d.open = true; });
+      grp.style.display = any ? '' : 'none'; n += any;
+    });
+    document.getElementById('empty').style.display = n ? 'none' : 'block';
+  });
+})();
+</script>
+</body>
+</html>

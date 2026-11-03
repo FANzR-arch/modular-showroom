@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Scent Catalogue | Solenne</title>
+<!-- Print source for assets/catalogue/catalogue.pdf (same data as scents.html). Regenerate with tools/build-catalogue.py -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap">
+<script src="assets/config.js"></script>
+<script src="assets/parts.js"></script>
+<style>
+@page { size: A4; margin: 14mm 14mm 16mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 400 10pt/1.45 Inter, Arial, sans-serif; color: #111214; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+h1, h2 { font-family: "Inter Tight", Inter, sans-serif; letter-spacing: -.03em; font-weight: 600; margin: 0; }
+.cover { height: 265mm; display: grid; grid-template-rows: auto 1fr auto; gap: 10mm; page-break-after: always; }
+.cover .mark { font: 600 12pt "Inter Tight", sans-serif; letter-spacing: .04em; }
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+.cover h1 { font-size: 40pt; line-height: 1; }
+.cover p { color: #5d6164; margin: 4mm 0 0; }
+.cat { page-break-before: always; }
+.cat h2 { font-size: 22pt; }
+.cat .d { color: #5d6164; margin: 2mm 0 6mm; max-width: 120mm; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-weight: 500; font-size: 8pt; color: #8d979e; padding: 0 3mm 2mm 0; border-bottom: .6pt solid #111214; }
+td { padding: 2.2mm 3mm 2.2mm 0; border-bottom: .4pt solid #dfe4e8; vertical-align: middle; }
+tr { page-break-inside: avoid; }
+td.pic { width: 26mm; }
+td.pic img { width: 24mm; height: 16mm; object-fit: cover; display: block; }
+code { font: 500 9pt Inter, sans-serif; }
+.muted { color: #5d6164; }
+.back { page-break-before: always; display: grid; gap: 5mm; padding-top: 40mm; }
+.back h2 { font-size: 26pt; }
+</style>
+</head>
+<body>
+<section class="cover">
+  <div class="mark" id="mark"></div>
+  <img src="assets/img/photos/still-life-day.jpg" alt="Photo: a candle and a reed diffuser on a stone table">
+  <div><h1>Scent<br>Catalogue</h1><p id="sub"></p></div>
+</section>
+<main id="cats"></main>
+<section class="back">
+  <h2>Talk to us</h2>
+  <p>Tell us about your shop, hotel or event. We reply within 2 working days with samples and trade prices.</p>
+  <p id="addr"></p>
+</section>
+<script>
+(() => {
+  const { CATS, FORMATS, COLS, PRICE, pic } = window.PARTS, S = window.SITE || {};
+  document.getElementById('mark').textContent = S.logo || S.brand || '';
+  document.getElementById('sub').textContent = `Every item with its code, size and notes, as ${FORMATS.map(f => f.label.toLowerCase()).join(' and ')}.`;
+  document.getElementById('addr').innerHTML = [S.legalName, (S.location || []).join(', '), [S.email, S.phone].filter(Boolean).join(' · ')].filter(Boolean).join('<br>');
+  const rows = cat => {
+    const a = cat.items(FORMATS[0].id), b = FORMATS[1] ? cat.items(FORMATS[1].id) : [];
+    const row = (it, other) => `<tr><td class="pic">${pic(it)}</td><td><code>${it.c}</code>${other ? `<br><code>${other.c}</code>` : ''}</td>
+        <td>${it.n}</td><td>${it.s}${other ? `<br>${other.s}` : ''}</td><td class="muted">${it.u || ''}</td><td class="muted">${it.price || PRICE}</td></tr>`;
+    // the same item in both formats (same name) shares one row with both codes; otherwise each format gets its own rows
+    const paired = b.length === a.length && a.every((it, i) => it.n === b[i].n);
+    return paired ? a.map((it, i) => row(it, b[i].c !== it.c ? b[i] : null)).join('') : [...a, ...b].map(it => row(it)).join('');
+  };
+  document.getElementById('cats').innerHTML = CATS.map(cat => `<section class="cat"><h2>${cat.t}</h2><p class="d">${cat.d}</p>
+    <table><thead><tr><th></th>${COLS.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${rows(cat)}</tbody></table></section>`).join('');
+})();
+</script>
+</body>
+</html>
